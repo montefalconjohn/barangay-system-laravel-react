@@ -1,0 +1,18 @@
+barangay information, barangay official lists, resident, blotter record, certificate, reports
+
+
+barangay information: id, barangay_id, municipality, province, phone number, email address
+
+barangay oficials: id, barangay id, status, age, firstname, lastname, civil status, gender, birth place and date, phone number, email address, purok, term
+
+residents: residents list and add resident.
+
+resident: status, name, gender, purok, street, status, age, firstname, lastname, civil status, gender, birthplace, occupation, email address, citizenship. Relationship with case involved.
+
+Blotter records: status (new and ongoing), incident type, datetime reported, datetime incident, date recorded, actions (view with complainant, statement, respondent, involved, location, remarks, actions taken, delete and edit)
+
+certificate: issue certificate and manage certificate. for clearance, indigency, business permit, and residency: purpose and or number
+
+manage certificate: list of certificates generated and can printable in pdf
+
+reports: total of residents, blotter, certificates, and barangay officials (all can generate pdf reports)
