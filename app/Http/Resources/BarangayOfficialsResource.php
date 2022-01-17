@@ -34,8 +34,11 @@ class BarangayOfficialsResource extends JsonResource
                 'term' => $this->term,
                 
                 // Lazy loading
+                // 'barangay' => new BarangayResource($barangay)
+            ],
+            'relationships' => [
                 'barangay' => new BarangayResource($barangay)
             ]
         ];
     }
-}
+}   
