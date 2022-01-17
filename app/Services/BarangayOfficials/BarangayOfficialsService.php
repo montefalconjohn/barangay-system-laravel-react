@@ -26,6 +26,7 @@ class BarangayOfficialsService implements BarangayOfficialsServiceInterface
      */
     public function fetchBarangayOfficials()
     {
+        // var_dump($this->barangayOfficialRepository->getBarangayOfficials());die();
        return $this->barangayOfficialRepository->getBarangayOfficials();
     }
     

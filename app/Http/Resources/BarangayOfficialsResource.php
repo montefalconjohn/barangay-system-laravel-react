@@ -14,6 +14,8 @@ class BarangayOfficialsResource extends JsonResource
      */
     public function toArray($request)
     {
+        $barangay = $this->whenLoaded('barangay');
+        
         return [
             'type' => 'barangay-officials',
             'id' => (string)$this->id,
@@ -30,7 +32,9 @@ class BarangayOfficialsResource extends JsonResource
                 'email' => $this->email,
                 'purok' => $this->purok,
                 'term' => $this->term,
-                'barangay' => new BarangayResource($this->barangay)
+                
+                // Lazy loading
+                'barangay' => new BarangayResource($barangay)
             ]
         ];
     }

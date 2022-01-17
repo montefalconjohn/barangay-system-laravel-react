@@ -20,6 +20,6 @@ class BarangayOfficialsRepository implements BarangayOfficialsRepositoryInterfac
 
     public function getBarangayOfficials()
     {
-        return BarangayOfficial::all();
+        return BarangayOfficial::with('barangay')->get();
     }
 }

@@ -27,6 +27,7 @@ class BarangayService implements BarangayServiceInterface
     public function fetchBarangayInformationById(int $id): Barangay
     {
         return $this->barangayRepository->getBarangayById($id);
+        // var_dump($this->barangayRepository->getBarangayById($id));
     }
 
     /**

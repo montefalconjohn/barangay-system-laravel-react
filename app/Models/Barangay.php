@@ -21,7 +21,8 @@ class Barangay extends Model
     
     protected $hidden = ['updated_at', 'created_at'];
 
-    public function barangayOfficials() {
+    public function barangayOfficials() 
+    {
         return $this->hasMany(BarangayOfficial::class);
     }
 }

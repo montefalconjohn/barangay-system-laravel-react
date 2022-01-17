@@ -23,9 +23,9 @@ class Barangays extends Migration
             $table->timestamps();
         });
 
-        Schema::table('barangay_officials', function (Blueprint $table) {
-            $table->foreign('barangay_official_id')->references('id')->on('barangay_officials');
-        });
+        // Schema::table('barangay_officials', function (Blueprint $table) {
+        //     $table->foreign('barangay_official_id')->references('id')->on('barangay_officials');
+        // });
     }
 
     /**

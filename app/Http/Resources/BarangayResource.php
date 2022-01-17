@@ -23,6 +23,8 @@ class BarangayResource extends JsonResource
                 'province' => $this->province,
                 'email' => $this->email,
                 'phone_number' => $this->phone_number,
+
+                // Include Relationship
                 'barangayOfficials' => BarangayOfficialsResource::collection($this->barangayOfficials)
             ]
         ];
