@@ -34,6 +34,13 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->delete('barangay-officials/{id}', ['uses' => 'BarangayOfficialController@destroy']);
         $router->patch('barangay-officials/{id}', ['uses' => 'BarangayOfficialController@update']);
 
+        // Position entity resource endpoints
+        $router->get('positions/', ['uses' => 'PositionsController@index']);
+        $router->get('positions/{id}', ['uses' => 'PositionsController@show']);
+        $router->post('positions', ['uses' => 'PositionsController@store']);
+        $router->delete('positions/{id}', ['uses' => 'PositionsController@destroy']);
+        $router->patch('positions/{id}', ['uses' => 'PositionsController@update']);
+
         // Logout endpoint
         $router->get('logout', ['uses' => 'Auth\AuthController@logout']);
     // });
