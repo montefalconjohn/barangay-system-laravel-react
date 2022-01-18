@@ -31,14 +31,12 @@ class BarangayOfficialsResource extends JsonResource
                 'phone_number' => $this->phone_number,
                 'email' => $this->email,
                 'purok' => $this->purok,
-                'term' => $this->term,
-                
-                // Lazy loading
-                // 'barangay' => new BarangayResource($barangay)
+                'term' => $this->term
             ],
             'relationships' => [
+                // Lazy loading
                 'barangay' => new BarangayResource($barangay)
             ]
         ];
     }
-}   
+}

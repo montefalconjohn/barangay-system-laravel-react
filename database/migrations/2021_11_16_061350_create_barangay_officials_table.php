@@ -35,6 +35,11 @@ class CreateBarangayOfficialsTable extends Migration
                   ->references('id')
                   ->on('barangay')
                   ->onDelete('cascade');  
+
+            // $table->foreign('position_id')
+            //     ->references('id')
+            //     ->on()
+            //     ->onDelete('cascade');
         });
     }
 

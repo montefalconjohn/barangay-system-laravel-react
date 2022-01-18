@@ -27,4 +27,9 @@ class BarangayOfficial extends Model
     {
         return $this->belongsTo(Barangay::class);
     }
+
+    public function position()
+    {
+        return $this->belongsTo(Position::class);
+    }
 }
