@@ -2,11 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PositionResource;
 use App\Models\Positions;
 use Illuminate\Http\Request;
+use App\Services\Position\PositionServiceInterface;
+use App\Http\Requests\PositionRequest;
 
 class PositionsController extends Controller
 {
+    /** @var PositionServiceInterface */
+    private $positionService;
+
+    /**
+     * PositionController constructor.
+     * 
+     * @param PositionServiceInterface
+     */
+    public function __construct(PositionServiceInterface $positionService)
+    {
+        $this->positionService = $positionService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,17 +30,7 @@ class PositionsController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return PositionResource::collection($this->positionService->fetchPositions());
     }
 
     /**
@@ -35,7 +41,7 @@ class PositionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return new PositionResource($this->positionService->createPosition($request));
     }
 
     /**
@@ -44,42 +50,33 @@ class PositionsController extends Controller
      * @param  \App\Models\Positions  $positions
      * @return \Illuminate\Http\Response
      */
-    public function show(Positions $positions)
+    public function show(int $id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Positions  $positions
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Positions $positions)
-    {
-        //
+        return new PositionResource($this->positionService->fetchPositionById($id));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Positions  $positions
+     * @param  PositionRequest  $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Positions $positions)
+    public function update(PositionRequest $request, int $id)
     {
-        //
+        $this->positionService->updatePosition($request, $id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Positions  $positions
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Positions $positions)
+    public function destroy(int $id)
     {
-        //
+        $this->positionService->deletePosition($id);
+
+        return response()->json('Position successfully deleted.');
     }
 }

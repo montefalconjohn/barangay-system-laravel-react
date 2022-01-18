@@ -4,18 +4,29 @@ namespace App\Services\Position;
 
 use App\Services\Position\PositionServiceInterface;
 use App\Models\Position;
+use App\Repositories\Position\PositionRepositoryInterface;
 
 class PositionService implements PositionServiceInterface
 {
-    /**  */
+    /** @var PositionRepositoryInterface */
     private $positionRepository;
+
+    /**
+     * PositionService constructor.
+     * 
+     * @param PositionRepositoryInterface $positionRepository
+     */
+    public function __construct(PositionRepositoryInterface $positionRepository)
+    {
+        $this->positionRepository = $positionRepository;    
+    }
 
     /**
      * @inheritDoc
      */
     public function fetchPositions(): array
     {
-        
+        return $this->positionRepository->getAllPositions();
     }
 
     /**
@@ -23,7 +34,7 @@ class PositionService implements PositionServiceInterface
      */
     public function fetchPositionById(int $id): Position
     {
-        
+        return $this->positionRepository->getPositionById($id);
     }
 
     /**
@@ -31,7 +42,9 @@ class PositionService implements PositionServiceInterface
      */
     public function createPosition($request): Position
     {
-        
+        return Position::create([
+            'position_name' => $request->positionName
+        ]);
     }
 
     /**
@@ -39,7 +52,9 @@ class PositionService implements PositionServiceInterface
      */
     public function updatePosition($request, int $id): void
     {
-        
+        $position = $this->positionRepository->getPositionById($id);
+
+        $position->fill($request->input())->save();
     }
 
     /**
@@ -47,6 +62,8 @@ class PositionService implements PositionServiceInterface
      */
     public function deletePosition(int $id): void
     {
-        
+        $position = $this->positionRepository->getPositionById($id);
+
+        $position->delete();
     }
 }
