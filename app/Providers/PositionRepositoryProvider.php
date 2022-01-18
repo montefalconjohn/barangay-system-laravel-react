@@ -24,6 +24,6 @@ class PositionRepositoryProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Repositories\PositionRepositoryInterface', PositionRepository::class);
+        $this->app->bind('App\Repositories\Position\PositionRepositoryInterface', PositionRepository::class);
     }
 }

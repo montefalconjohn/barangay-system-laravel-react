@@ -8,8 +8,6 @@ interface PositionRepositoryInterface
 {
     /**
      * Returns all the positions
-     * 
-     * @return Position[]
      */
     public function getAllPositions();
 

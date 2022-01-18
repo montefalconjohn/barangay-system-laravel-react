@@ -36,10 +36,10 @@ class PositionsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  PositionRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PositionRequest $request)
     {
         return new PositionResource($this->positionService->createPosition($request));
     }
@@ -65,6 +65,8 @@ class PositionsController extends Controller
     public function update(PositionRequest $request, int $id)
     {
         $this->positionService->updatePosition($request, $id);
+
+        return response()->json('Position successfully updated.');
     }
 
     /**

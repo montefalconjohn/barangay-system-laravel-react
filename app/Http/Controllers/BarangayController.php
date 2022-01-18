@@ -44,7 +44,6 @@ class BarangayController extends Controller
     */
     public function show(int $id)
     {
-        // die('here');
         return new BarangayResource($this->barangayService->fetchBarangayInformationById($id));
     }
   

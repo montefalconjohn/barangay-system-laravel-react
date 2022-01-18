@@ -9,9 +9,8 @@ interface PositionServiceInterface
     /**
      * Fetches all Positions available
      * 
-     * @return Position[]
      */
-    public function fetchPositions(): array;
+    public function fetchPositions();
 
     /**
      * Fetches specific Position by ID

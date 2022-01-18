@@ -24,7 +24,7 @@ class PositionService implements PositionServiceInterface
     /**
      * @inheritDoc
      */
-    public function fetchPositions(): array
+    public function fetchPositions()
     {
         return $this->positionRepository->getAllPositions();
     }
@@ -43,7 +43,7 @@ class PositionService implements PositionServiceInterface
     public function createPosition($request): Position
     {
         return Position::create([
-            'position_name' => $request->positionName
+            'position_name' => $request->position_name
         ]);
     }
 
@@ -53,7 +53,7 @@ class PositionService implements PositionServiceInterface
     public function updatePosition($request, int $id): void
     {
         $position = $this->positionRepository->getPositionById($id);
-
+        
         $position->fill($request->input())->save();
     }
 
