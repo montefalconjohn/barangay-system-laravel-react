@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Anik\Form\FormRequest;
-use Illuminate\Http\Request;
 
-class PositionRequest extends FormRequest
+class CivilStatusesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +23,18 @@ class PositionRequest extends FormRequest
      */
     protected function rules(): array
     {
-        return Request::isMethod('post') ? $this->postValidation() : $this->patchValidation();
+        return [
+            //
+        ];
     }
 
-    /**
+        /**
      * Validation for post method request
      */
     private function postValidation()
     {
         return [
-            'position_name' => 'required|string|unique:positions'
+            'civil_status_name' => 'required|string|unique:civil_statuses'
         ];
     }
 
@@ -44,7 +45,7 @@ class PositionRequest extends FormRequest
     {
         // the rule in email is to avoid the unique constraint error
         return [
-            'position_name' => 'string|unique:positions,position_name,' . $this->id
+            'civil_status_name' => 'string|unique:civil_statuses,civil_status_name,' . $this->id
         ];
     }
 }

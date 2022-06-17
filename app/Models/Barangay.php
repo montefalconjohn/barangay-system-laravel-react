@@ -17,7 +17,7 @@ class Barangay extends Model
         'province', 
         'email', 
         'phone_number'
-    ];
+    ];  
     
     protected $hidden = ['updated_at', 'created_at'];
 

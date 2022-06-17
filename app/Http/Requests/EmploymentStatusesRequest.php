@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Anik\Form\FormRequest;
 use Illuminate\Http\Request;
 
-class PositionRequest extends FormRequest
+class EmploymentStatusesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,13 +27,13 @@ class PositionRequest extends FormRequest
         return Request::isMethod('post') ? $this->postValidation() : $this->patchValidation();
     }
 
-    /**
+       /**
      * Validation for post method request
      */
     private function postValidation()
     {
         return [
-            'position_name' => 'required|string|unique:positions'
+            'employment_status' => 'required|string|unique:employment_statuses'
         ];
     }
 
@@ -44,7 +44,7 @@ class PositionRequest extends FormRequest
     {
         // the rule in email is to avoid the unique constraint error
         return [
-            'position_name' => 'string|unique:positions,position_name,' . $this->id
+            'employment_status' => 'string|unique:employment_statuses,employment_status,' . $this->id
         ];
     }
 }

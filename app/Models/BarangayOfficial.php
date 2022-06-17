@@ -9,6 +9,7 @@ class BarangayOfficial extends Model
 
     protected $fillable = [
         'barangay_id',
+        'position_id',
         'first_name',
         'last_name',
         'status',

@@ -54,14 +54,13 @@ class BarangayOfficialsService implements BarangayOfficialsServiceInterface
             'birthplace' => $request->birthPlace,
             'birthdate' => $request->birthDate,
             'phone_number' => $request->phoneNumber,
-            'email' => $request->email,
             'purok' => $request->purok,
             'term' => $request->term
         ]);
     }
 
     /**
-     * @inheritDocs
+     * @inheritDoxzcs
      */
     public function updateBarangayOfficialById($request, int $id): void
     {

@@ -41,7 +41,7 @@ class BarangayOfficialController extends Controller
      */
     public function store(BarangayOfficialsRequest $request)
     {
-        return new BarangayOfficialsResource($this->barangayOfficialService->createBarangayOfficial($request));
+        // return new BarangayOfficialsResource($this->barangayOfficialService->createBarangayOfficial($request));
     }
 
     /**

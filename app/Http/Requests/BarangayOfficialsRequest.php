@@ -35,9 +35,7 @@ class BarangayOfficialsRequest extends FormRequest
         return [
                 'first_name' => 'required|string|min:3|max:120',
                 'last_name' => 'required|string|min:3|max:120',
-                'status' => 'required|string|min:3|status',
                 'age' => 'required|int|min:1|max:11',
-                'civil_status' => 'required|string|min:8|max:120',
                 'gender' => 'required|string|max:20',
                 'birthplace' => 'required|string|min:10|max:50',
                 'birthdate' => 'required|date_format:d/m/Y',
@@ -58,7 +56,6 @@ class BarangayOfficialsRequest extends FormRequest
             'last_name' => 'string|min:3|max:120',
             'status' => 'string|min:3|status',
             'age' => 'int|min:1|max:11',
-            'civil_status' => 'string|min:8|max:120',
             'gender' => 'string|max:20',
             'birthplace' => 'string|min:10|max:50',
             'birthdate' => 'date_format:d/m/Y',

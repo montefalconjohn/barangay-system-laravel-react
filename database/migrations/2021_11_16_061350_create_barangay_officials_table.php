@@ -15,12 +15,9 @@ class CreateBarangayOfficialsTable extends Migration
     {
         Schema::create('barangay_officials', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('barangay_id');
             $table->string('first_name', 120);
             $table->string('last_name', 120);
-            $table->string('status', 120);
             $table->integer('age');
-            $table->string('civil_status', 120);
             $table->string('gender', 20);
             $table->string('birthplace', 50);
             $table->dateTime('birthdate');
@@ -29,17 +26,35 @@ class CreateBarangayOfficialsTable extends Migration
             $table->integer('purok');
             $table->integer('term');
             $table->timestamps();
+            
+            // Relationships
+            $table->unsignedBigInteger('barangay_id');
+            $table->unsignedBigInteger('position_id');
+            $table->unsignedBigInteger('civil_status_id');
+            $table->unsignedBigInteger('employment_status_id');
 
             // linking the relationship ManyToOne
             $table->foreign('barangay_id')
                   ->references('id')
                   ->on('barangay')
                   ->onDelete('cascade');  
+            
+            // One to one
+            $table->foreign('position_id')
+                ->references('id')
+                ->on('positions')
+                ->onDelete('cascade');   
+            // One to one
+            $table->foreign('civil_status_id')
+                ->references('id')
+                ->on('civil_status')
+                ->onDelete('cascade');   
 
-            // $table->foreign('position_id')
-            //     ->references('id')
-            //     ->on()
-            //     ->onDelete('cascade');
+            // One to one    
+            $table->foreign('employment_status_id')
+                ->references('id')
+                ->on('employment_statuses')
+                ->onDelete('cascade'); 
         });
     }
 

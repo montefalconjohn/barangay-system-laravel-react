@@ -20,7 +20,7 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'api'], function () use ($router) {
     
     // Temporary delete
-    // $router->group(['middleware' => 'auth'], function () use ($router) {
+    $router->group(['middleware' => 'auth'], function () use ($router) {
         // Barangay Information endpoints
         $router->get('barangay/{id}', ['uses' => 'BarangayController@show']);
         $router->post('barangay', ['uses' => 'BarangayController@store']);
@@ -43,8 +43,9 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
         // Logout endpoint
         $router->get('logout', ['uses' => 'Auth\AuthController@logout']);
-    // });
-  
+    });
+    
+    // Router for register
     $router->group(['prefix' => 'auth'], function () use ($router) {
         $router->post('register', ['uses' => 'Auth\RegisterController@store']);
     });
