@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 class CivilStatusController extends Controller
 {
+    /**  */
+    private $civilStatusService;
     /**
      * Display a listing of the resource.
      *

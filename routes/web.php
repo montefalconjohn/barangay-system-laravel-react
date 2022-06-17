@@ -41,6 +41,20 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->delete('positions/{id}', ['uses' => 'PositionsController@destroy']);
         $router->patch('positions/{id}', ['uses' => 'PositionsController@update']);
 
+        // Civil Statuses entity resource endpoints
+        $router->get('civil-statuses/', ['uses' => 'CivilStatusController@index']);
+        $router->get('civil-statuses/{id}', ['uses' => 'CivilStatusController@show']);
+        $router->post('civil-statuses', ['uses' => 'CivilStatusController@store']);
+        $router->delete('civil-statuses/{id}', ['uses' => 'CivilStatusController@destroy']);
+        $router->patch('civil-statuses/{id}', ['uses' => 'CivilStatusController@update']);
+
+        // Employment Statuses entity resource endpoints
+        $router->get('employment-statuses/', ['uses' => 'EmplyomentStatusController@index']);
+        $router->get('employment-statuses/{id}', ['uses' => 'EmplyomentStatusController@show']);
+        $router->post('employment-statuses', ['uses' => 'EmplyomentStatusController@store']);
+        $router->delete('employment-statuses/{id}', ['uses' => 'EmplyomentStatusController@destroy']);
+        $router->patch('employment-statuses/{id}', ['uses' => 'EmplyomentStatusController@update']);
+
         // Logout endpoint
         $router->get('logout', ['uses' => 'Auth\AuthController@logout']);
     });
