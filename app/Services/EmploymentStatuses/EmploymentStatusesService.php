@@ -52,7 +52,9 @@ class EmploymentStatusesService implements EmploymentStatusesServiceInterface
      */
     public function updateEmploymentStatusById($request, int $id): void
     {
-        
+        $status = $this->employmentStatusesRepository->getEmploymentStatusById($id);
+
+        $status->fill($request->input())->save();
     }
 
     /**

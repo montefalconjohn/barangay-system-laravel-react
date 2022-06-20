@@ -44,7 +44,7 @@ class EmploymentStatusesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  EmploymentStatusesRequest  $request
+     * @param  EmploymentStatusesRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(EmploymentStatusesRequest $request)
@@ -77,13 +77,15 @@ class EmploymentStatusesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param EmploymentStatusesRequest $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EmploymentStatusesRequest $request, $id)
     {
-        //
+        $this->employmentStatusesService->updateEmploymentStatusById($request, $id);
+
+        return response()->json('Employment Status successfully updated.');
     }
 
     /**
