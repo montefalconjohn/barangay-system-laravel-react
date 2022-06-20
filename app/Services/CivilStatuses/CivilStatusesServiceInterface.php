@@ -3,6 +3,7 @@
 namespace App\Services\CivilStatuses;
 
 use App\Models\CivilStatuses;
+use App\Http\Requests\CivilStatusesRequest;
 
 interface CivilStatusesServiceInterface
 {
@@ -22,6 +23,8 @@ interface CivilStatusesServiceInterface
 
     /**
      * Create Civil Status
+     * 
+     * @param CivilStatusesRequest $request
      * 
      * @return CivilStatuses
      */
