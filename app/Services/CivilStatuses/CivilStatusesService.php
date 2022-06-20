@@ -52,7 +52,9 @@ class CivilStatusesService implements CivilStatusesServiceInterface
      */
     public function updateCivilStatusById($request, int $id): void
     {
-        
+        $civilStatus = $this->civilStatusesRepository->getCivilStatusById($id);
+
+        $civilStatus->fill($request->input())->save();
     }
 
     /**
