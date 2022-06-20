@@ -109,6 +109,7 @@ $app->register(\Anik\Form\FormRequestServiceProvider::class);
 $app->register(App\Providers\PositionRepositoryProvider::class);
 $app->register(App\Providers\PositionServiceProvider::class);
 $app->register(App\Providers\CivilStatusServiceProvider::class);
+$app->register(App\Providers\CivilStatusesRepositoryProvider::class);
 
 /*
 |--------------------------------------------------------------------------

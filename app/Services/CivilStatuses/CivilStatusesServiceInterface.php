@@ -11,7 +11,7 @@ interface CivilStatusesServiceInterface
      * 
      * @return array
      */
-    public function fetchCivilStatuses();
+    public function fetchCivilStatuses(): array;
 
     /**
      * Fetches civil status by id

@@ -29,7 +29,7 @@ class CivilStatusController extends Controller
      */
     public function index()
     {
-        //
+        return CivilStatusesResource::collection($this->civilStatusesService->fetchCivilStatuses());
     }
 
     /**
@@ -61,7 +61,7 @@ class CivilStatusController extends Controller
      */
     public function show($id)
     {
-        //
+        return new CivilStatusesResource($this->civilStatusesService->fetchCivilStatusById($id));
     }
 
     /**

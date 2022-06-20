@@ -4,15 +4,29 @@ namespace App\Services\CivilStatuses;
 
 use App\Services\CivilStatuses\CivilStatusesServiceInterface;
 use App\Models\CivilStatuses;
+use App\Repositories\CivilStatuses\CivilStatusesRepositoryInterface;
 
 class CivilStatusesService implements CivilStatusesServiceInterface
 {
+    /** @var CivilStatusesRepositoryInterface */
+    private $civilStatusesRepository;
+
+    /**
+     * CivilStatusesService constructor.
+     * 
+     * @param CivilStatusesRepositoryInterface $civilStatusRepository
+     */
+    public function __construct(CivilStatusesRepositoryInterface $civilStatusesRepository)
+    {
+        $this->civilStatusesRepository = $civilStatusesRepository;
+    }
+
     /**
      * @inheritDoc
      */
-    public function fetchCivilStatuses()
+    public function fetchCivilStatuses(): array
     {
-        
+        return $this->fetchCivilStatuses();
     }
 
     /**
@@ -20,7 +34,7 @@ class CivilStatusesService implements CivilStatusesServiceInterface
      */
     public function fetchCivilStatusById(int $id): CivilStatuses
     {
-        
+        return $this->civilStatusesRepository->getCivilStatusById($id);
     }
 
     /**
