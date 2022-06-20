@@ -62,6 +62,8 @@ class CivilStatusesService implements CivilStatusesServiceInterface
      */
     public function deleteCivilStatusById(int $id): void
     {
-        
+        $civilStatus = $this->civilStatusesRepository->getCivilStatusById($id);
+
+        $civilStatus->delete();
     }
 }

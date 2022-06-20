@@ -95,6 +95,8 @@ class CivilStatusController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->civilStatusesService->deleteCivilStatusById($id);
+
+        return response()->json('Civil status sucessfully deleted.');
     }
 }
