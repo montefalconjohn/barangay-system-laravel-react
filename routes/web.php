@@ -49,11 +49,11 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->patch('civil-statuses/{id}', ['uses' => 'CivilStatusController@update']);
 
         // Employment Statuses entity resource endpoints
-        $router->get('employment-statuses/', ['uses' => 'EmplyomentStatusController@index']);
-        $router->get('employment-statuses/{id}', ['uses' => 'EmplyomentStatusController@show']);
-        $router->post('employment-statuses', ['uses' => 'EmplyomentStatusController@store']);
-        $router->delete('employment-statuses/{id}', ['uses' => 'EmplyomentStatusController@destroy']);
-        $router->patch('employment-statuses/{id}', ['uses' => 'EmplyomentStatusController@update']);
+        $router->get('employment-statuses/', ['uses' => 'EmploymentStatusesController@index']);
+        $router->get('employment-statuses/{id}', ['uses' => 'EmploymentStatusesController@show']);
+        $router->post('employment-statuses', ['uses' => 'EmploymentStatusesController@store']);
+        $router->delete('employment-statuses/{id}', ['uses' => 'EmploymentStatusesController@destroy']);
+        $router->patch('employment-statuses/{id}', ['uses' => 'EmploymentStatusesController@update']);
 
         // Logout endpoint
         $router->get('logout', ['uses' => 'Auth\AuthController@logout']);
