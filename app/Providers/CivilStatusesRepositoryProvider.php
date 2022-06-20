@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\CivilStatusess\CivilStatusesRepository;
+use App\Repositories\CivilStatuses\CivilStatusesRepository;
 
 class CivilStatusesRepositoryProvider extends ServiceProvider
 {

@@ -25,8 +25,8 @@ class CivilStatusesRepository implements CivilStatusesRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function getAllCivilStatuses(): array
+    public function getAllCivilStatuses()
     {
-        return CivilStatuses::all()->toArray();
+        return CivilStatuses::all();
     }
 }

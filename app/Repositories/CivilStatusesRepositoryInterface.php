@@ -8,10 +8,8 @@ interface CivilStatusesRepositoryInterface
 {
     /**
      * Fetches all civil statuses
-     * 
-     * @return CivilStatuses[]
      */
-    public function getAllCivilStatuses(): array;
+    public function getAllCivilStatuses();
 
     /**
      * Fetches a specific civil status by ID

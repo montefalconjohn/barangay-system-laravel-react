@@ -24,9 +24,9 @@ class CivilStatusesService implements CivilStatusesServiceInterface
     /**
      * @inheritDoc
      */
-    public function fetchCivilStatuses(): array
+    public function fetchCivilStatuses()
     {
-        return $this->fetchCivilStatuses();
+        return $this->civilStatusesRepository->getAllCivilStatuses();
     }
 
     /**

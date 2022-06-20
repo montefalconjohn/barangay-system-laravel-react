@@ -8,10 +8,8 @@ interface CivilStatusesServiceInterface
 {
     /**
      * Fetches all civil statuses
-     * 
-     * @return array
      */
-    public function fetchCivilStatuses(): array;
+    public function fetchCivilStatuses();
 
     /**
      * Fetches civil status by id
