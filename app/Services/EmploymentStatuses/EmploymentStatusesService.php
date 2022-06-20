@@ -26,7 +26,7 @@ class EmploymentStatusesService implements EmploymentStatusesServiceInterface
      */
     public function fetchAllEmploymentStatuses()
     {
-        
+        return $this->employmentStatusesRepository->getAllEmploymentStatuses();
     }
 
     /**
@@ -34,7 +34,7 @@ class EmploymentStatusesService implements EmploymentStatusesServiceInterface
      */
     public function fetchEmploymentStatusById(int $id): EmploymentStatuses
     {
-        
+        return $this->employmentStatusesRepository->getEmploymentStatusById($id);
     }
 
     /**

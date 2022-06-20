@@ -28,7 +28,7 @@ class EmploymentStatusesController extends Controller
      */
     public function index()
     {
-        //
+        return EmploymentStatusesResource::collection($this->employmentStatusesService->fetchAllEmploymentStatuses());
     }
 
     /**
@@ -60,7 +60,7 @@ class EmploymentStatusesController extends Controller
      */
     public function show($id)
     {
-        //
+        return new EmploymentStatusesResource($this->employmentStatusesService->fetchEmploymentStatusById($id));
     }
 
     /**
