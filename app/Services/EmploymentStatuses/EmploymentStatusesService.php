@@ -62,6 +62,8 @@ class EmploymentStatusesService implements EmploymentStatusesServiceInterface
      */
     public function deleteEmploymentStatusById(int $id): void
     {
-        
+        $status = $this->employmentStatusesRepository->getEmploymentStatusById($id);
+
+        $status->delete();
     }
 }

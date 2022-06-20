@@ -96,6 +96,8 @@ class EmploymentStatusesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->employmentStatusesService->deleteEmploymentStatusById($id);
+
+        return response()->json('Employment Status successfully deleted.');
     }
 }
