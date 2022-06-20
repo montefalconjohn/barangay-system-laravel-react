@@ -9,7 +9,7 @@ class PositionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
-     *
+     *c
      * @return bool
      */
     protected function authorize(): bool

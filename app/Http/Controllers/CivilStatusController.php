@@ -2,12 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CivilStatusesRequest;
 use Illuminate\Http\Request;
+use App\Http\Resources\CivilStatusesResource;
+use App\Services\CivilStatuses\CivilStatusesServiceInterface;
 
 class CivilStatusController extends Controller
 {
-    /**  */
-    private $civilStatusService;
+    /** @var CivilStatusesServiceInterface */
+    private $civilStatusesService;
+    
+    /**
+     * CivilStatusesController constroller
+     * 
+     * @param CivilStatusesServiceInterface
+     */
+    public function __construct(CivilStatusesServiceInterface $civilStatusesService)
+    {
+        $this->civilStatusesService = $civilStatusesService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -31,12 +45,12 @@ class CivilStatusController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  CivilStatusesRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CivilStatusesRequest $request)
     {
-        //
+        return new CivilStatusesResource($this->civilStatusesService->createCivilStatus($request));
     }
 
     /**

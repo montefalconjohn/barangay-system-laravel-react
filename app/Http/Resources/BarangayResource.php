@@ -30,3 +30,4 @@ class BarangayResource extends JsonResource
         ];
     }
 }
+ 

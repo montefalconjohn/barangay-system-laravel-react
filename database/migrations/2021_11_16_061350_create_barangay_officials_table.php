@@ -47,7 +47,7 @@ class CreateBarangayOfficialsTable extends Migration
             // One to one
             $table->foreign('civil_status_id')
                 ->references('id')
-                ->on('civil_status')
+                ->on('civil_statuses')
                 ->onDelete('cascade');   
 
             // One to one    

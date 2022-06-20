@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Anik\Form\FormRequest;
+use Illuminate\Http\Request;
 
 class CivilStatusesRequest extends FormRequest
 {
@@ -23,12 +24,10 @@ class CivilStatusesRequest extends FormRequest
      */
     protected function rules(): array
     {
-        return [
-            //
-        ];
+        return Request::isMethod('post') ? $this->postValidation() : $this->patchValidation();
     }
 
-        /**
+    /**
      * Validation for post method request
      */
     private function postValidation()

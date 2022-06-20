@@ -22,7 +22,7 @@ class BarangayOfficialsService implements BarangayOfficialsServiceInterface
     }
 
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     public function fetchBarangayOfficials()
     {
@@ -31,7 +31,7 @@ class BarangayOfficialsService implements BarangayOfficialsServiceInterface
     }
     
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     public function fetchBarangayOfficialById(int $id): BarangayOfficial
     {
@@ -39,7 +39,7 @@ class BarangayOfficialsService implements BarangayOfficialsServiceInterface
     }
     
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     public function createBarangayOfficial($request): BarangayOfficial
     {
@@ -60,7 +60,7 @@ class BarangayOfficialsService implements BarangayOfficialsServiceInterface
     }
 
     /**
-     * @inheritDoxzcs
+     * @inheritDoc
      */
     public function updateBarangayOfficialById($request, int $id): void
     {
@@ -70,7 +70,7 @@ class BarangayOfficialsService implements BarangayOfficialsServiceInterface
     }
 
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     public function deleteBarangayOfficial(int $id): void
     {
