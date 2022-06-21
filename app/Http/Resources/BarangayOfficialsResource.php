@@ -15,16 +15,17 @@ class BarangayOfficialsResource extends JsonResource
     public function toArray($request)
     {
         $barangay = $this->whenLoaded('barangay');
-        
+        $position = $this->whenLoaded('position');
+        $civilStatus = $this->whenLoaded('civilStatus');
+        $employmentStatus = $this->whenLoaded('employmentStatus');
+
         return [
             'type' => 'barangay-officials',
             'id' => (string)$this->id,
             'attributes' => [
                 'first_name' => $this->first_name,
                 'last_name' => $this->last_name,
-                'status' => $this->status,
                 'age' => $this->age,
-                'civil_status' => $this->civil_status,
                 'gender' => $this->gender,
                 'birthplace' => $this->birthplace,
                 'birthdate' => $this->birthdate,
@@ -35,7 +36,10 @@ class BarangayOfficialsResource extends JsonResource
             ],
             'relationships' => [
                 // Lazy loading
-                'barangay' => new BarangayResource($barangay)
+                'barangay' => new BarangayResource($barangay),
+                'civilStatus' => new CivilStatusesResource($civilStatus),
+                'employmentStatus' => new EmploymentStatusesResource($employmentStatus),
+                'position' => new PositionResource($position)
             ]
         ];
     }

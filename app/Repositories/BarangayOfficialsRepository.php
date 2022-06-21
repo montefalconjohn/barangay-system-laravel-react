@@ -9,7 +9,7 @@ class BarangayOfficialsRepository implements BarangayOfficialsRepositoryInterfac
 {
     public function getBarangayOfficialById(int $id): BarangayOfficial
     {
-        $official = BarangayOfficial::with('barangay')->get()->find($id);
+        $official = BarangayOfficial::with(['barangay', 'position', 'civilStatus', 'employmentStatus'])->get()->find($id);
 
         if (!$official) {
             throw new HttpException(500, "Barangay Official with {$id} does not exist.");
@@ -20,6 +20,6 @@ class BarangayOfficialsRepository implements BarangayOfficialsRepositoryInterfac
 
     public function getBarangayOfficials()
     {
-        return BarangayOfficial::with('barangay')->get();
+        return BarangayOfficial::with(['barangay', 'position', 'civilStatus', 'employmentStatus'])->get();
     }
 }
