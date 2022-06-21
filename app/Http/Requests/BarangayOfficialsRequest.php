@@ -33,16 +33,22 @@ class BarangayOfficialsRequest extends FormRequest
     private function postValidation()
     {
         return [
-                'first_name' => 'required|string|min:3|max:120',
-                'last_name' => 'required|string|min:3|max:120',
-                'age' => 'required|int|min:1|max:11',
+                'firstName' => 'required|string|min:3|max:120',
+                'lastName' => 'required|string|min:3|max:120',
+                'age' => 'required|int|min:1',
                 'gender' => 'required|string|max:20',
-                'birthplace' => 'required|string|min:10|max:50',
-                'birthdate' => 'required|date_format:d/m/Y',
-                'phone_number' => 'required|digits:11',
+                'birthPlace' => 'required|string|min:10|max:50',
+                'birthDate' => 'required|date_format:Y-m-d H:i:s',
+                'phoneNumber' => 'required|digits:11',
                 'email' => 'required|email|unique:barangay_officials|max:120',
                 'purok' => 'required|int|max:11',
-                'term' => 'required|int|max:11'
+                'term' => 'required|int|max:11',
+
+                // Relationships
+                'barangay' => 'required|integer|exists:barangay,id',
+                'civilStatus' => 'required|integer|exists:civil_statuses,id',
+                'employmentStatus' => 'required|integer|exists:employment_statuses,id',
+                'position' => 'required|integer|exists:positions,id'
         ];
     }
 
@@ -52,17 +58,23 @@ class BarangayOfficialsRequest extends FormRequest
     private function patchValidation()
     {
         return [
-            'first_name' => 'string|min:3|max:120',
+            'firstName' => 'string|min:3|max:120',
             'last_name' => 'string|min:3|max:120',
             'status' => 'string|min:3|status',
-            'age' => 'int|min:1|max:11',
+            'age' => 'int|min:1',
             'gender' => 'string|max:20',
-            'birthplace' => 'string|min:10|max:50',
-            'birthdate' => 'date_format:d/m/Y',
-            'phone_number' => 'digits:11',
+            'birthPlace' => 'string|min:10|max:50',
+            'birthDate' => 'date_format:Y-m-d H:i:s',
+            'phoneNumb' => 'digits:11',
             'email' => 'email|unique:book_officials,email,'. $this->id .'|max:120',
             'purok' => 'int|max:11',
-            'term' => 'int|max:11'
+            'term' => 'int|max:11',
+
+            // Relationships
+            'barangay' => 'integer|exists:barangay,id',
+            'civilStatus' => 'integer|exists:civil_statuses,id',
+            'employmentStatus' => 'integer|exists:employment_statuses,id',
+            'position' => 'required|integer|exists:positions,id'
         ];
     }
 }

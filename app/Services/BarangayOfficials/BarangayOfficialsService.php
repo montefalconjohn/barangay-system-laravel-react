@@ -44,18 +44,22 @@ class BarangayOfficialsService implements BarangayOfficialsServiceInterface
     public function createBarangayOfficial($request): BarangayOfficial
     {
         return BarangayOfficial::create([
-            'barangay_id' => $request->barangayId,
             'first_name' => $request->firstName,
             'last_name' => $request->lastName,
-            'status' => $request->status,
             'age' => $request->age,
-            'civil_status' => $request->civilStatus,
             'gender' => $request->gender,
             'birthplace' => $request->birthPlace,
             'birthdate' => $request->birthDate,
             'phone_number' => $request->phoneNumber,
             'purok' => $request->purok,
-            'term' => $request->term
+            'term' => $request->term,
+            'email' => $request->email,
+
+            // relationships
+            'barangay_id' => $request->barangay,
+            'civil_status_id' => $request->civilStatus,
+            'employment_status_id' => $request->employmentStatus,
+            'position_id' => $request->position
         ]);
     }
 

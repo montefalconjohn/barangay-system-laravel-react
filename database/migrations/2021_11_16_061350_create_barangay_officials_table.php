@@ -39,12 +39,13 @@ class CreateBarangayOfficialsTable extends Migration
                   ->on('barangay')
                   ->onDelete('cascade');  
             
-            // One to one
+            // Many to one
             $table->foreign('position_id')
                 ->references('id')
                 ->on('positions')
                 ->onDelete('cascade');   
-            // One to one
+                
+            // Many to one
             $table->foreign('civil_status_id')
                 ->references('id')
                 ->on('civil_statuses')
