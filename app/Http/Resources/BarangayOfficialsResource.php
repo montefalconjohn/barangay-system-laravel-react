@@ -32,7 +32,7 @@ class BarangayOfficialsResource extends JsonResource
                 'phone_number' => $this->phone_number,
                 'email' => $this->email,
                 'purok' => $this->purok,
-                'term' => $this->term
+                'term' => $this->termxz
             ],
             'relationships' => [
                 // Lazy loading
