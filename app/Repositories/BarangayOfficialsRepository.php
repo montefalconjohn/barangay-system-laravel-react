@@ -7,6 +7,9 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class BarangayOfficialsRepository implements BarangayOfficialsRepositoryInterface
 {
+    /**
+     * @inheritDoc
+     */
     public function getBarangayOfficialById(int $id): BarangayOfficial
     {
         $official = BarangayOfficial::with(['barangay', 'position', 'civilStatus', 'employmentStatus'])->get()->find($id);
@@ -18,6 +21,9 @@ class BarangayOfficialsRepository implements BarangayOfficialsRepositoryInterfac
         return $official;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getBarangayOfficials()
     {
         return BarangayOfficial::with(['barangay', 'position', 'civilStatus', 'employmentStatus'])->get();
