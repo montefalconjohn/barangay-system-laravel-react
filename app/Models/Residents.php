@@ -14,6 +14,7 @@ class Residents extends Model
         'address',
         'birthplace',
         'birthdate',
+        'phone_number',
         'age',
         'occupation',
         'email',
@@ -27,5 +28,16 @@ class Residents extends Model
     public function blotters()
     {
         // return $this
+    }
+
+    // citizenship
+    public function citizenship()
+    {
+
+    }
+
+    public function civilStatus()
+    {
+        
     }
 }

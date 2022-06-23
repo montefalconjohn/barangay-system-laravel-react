@@ -17,7 +17,7 @@ interface EmploymentStatusesServiceInterface
      * 
      * @Param int $id
      * 
-     * @return EmploymentStatues
+     * @return EmploymentStatuses
      */
     public function fetchEmploymentStatusById(int $id): EmploymentStatuses;
 

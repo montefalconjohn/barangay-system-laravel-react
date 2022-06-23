@@ -23,13 +23,14 @@ class ResidentsTable extends Migration
             $table->string('birthplace', 50);
             $table->dateTime('birthdate');
             $table->integer('age');
+            $table->string('phone_number', 11);
             $table->string('occupation', 50);
             $table->string('email', 120);
-            $table->string('citizenship', 120);
             $table->timestamps();
 
-            // Many to One relation ship
+            // Many to One relation relationship
             $table->unsignedBigInteger('civil_status_id');
+            $table->unsignedBigInteger('citizenship_id');
         });
     }
 

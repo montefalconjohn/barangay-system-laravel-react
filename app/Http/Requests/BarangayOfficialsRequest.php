@@ -66,7 +66,7 @@ class BarangayOfficialsRequest extends FormRequest
             'birthPlace' => 'string|min:10|max:50',
             'birthDate' => 'date_format:Y-m-d H:i:s',
             'phoneNumb' => 'digits:11',
-            'email' => 'email|unique:book_officials,email,'. $this->id .'|max:120',
+            'email' => 'email|unique:barangay_officials,email,'. $this->id .'|max:120',
             'purok' => 'int|max:11',
             'term' => 'int|max:11',
 
