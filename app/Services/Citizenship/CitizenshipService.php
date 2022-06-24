@@ -63,6 +63,8 @@ class CitizenshipService implements CitizenshipServiceInterface
      */
     public function deleteCitizenshipById(int $id): void
     {
-        
+        $citizen = $this->citizenshipRepository->fetchCitizenshipById($id);
+
+        $citizen->delete();
     }
 }

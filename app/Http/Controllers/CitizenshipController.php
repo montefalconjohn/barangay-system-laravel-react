@@ -77,6 +77,8 @@ class CitizenshipController extends Controller
      */
     public function destroy(int $id)
     {
-        //
+        $this->citizenshipService->deleteCitizenshipById($id);
+
+        return response()->json('Citizenship successfully deleted.');
     }
 }
