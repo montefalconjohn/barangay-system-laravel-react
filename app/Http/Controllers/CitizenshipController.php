@@ -30,7 +30,7 @@ class CitizenshipController extends Controller
      */
     public function index()
     {
-        //
+        return CitizenshipResource::collection($this->citizenshipService->fetchAllCitizenships());
     }
 
     /**
@@ -47,12 +47,12 @@ class CitizenshipController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Citizenship  $citizenship
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show(int $id)
     {
-        //
+        return new CitizenshipResource($this->citizenshipService->fetchCitizenshipById($id));
     }
 
     /**

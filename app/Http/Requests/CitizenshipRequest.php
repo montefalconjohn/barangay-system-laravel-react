@@ -33,7 +33,7 @@ class CitizenshipRequest extends FormRequest
     private function postValidation()
     {
         return [
-            'citizenship' => 'required|string|unique:citizenship'
+            'citizenship' => 'required|string|unique:citizenships'
         ];
     }
 
@@ -44,7 +44,7 @@ class CitizenshipRequest extends FormRequest
     {
         // the rule in email is to avoid the unique constraint error
         return [
-            'citizenship' => 'string|unique:citizenship,citizenship,' . $this->id
+            'citizenship' => 'string|unique:citizenships,citizenship,' . $this->id
         ];
     }
 }
