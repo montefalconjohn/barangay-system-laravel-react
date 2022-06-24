@@ -1,22 +1,24 @@
 <?php
 
-namespace App\Repositories\Citizenship;
+namespace App\Services\Citizenship;
 
 use App\Models\Citizenship;
 
-interface CitizenshipRepositoryInterface
+interface CitizenshipServiceInterface
 {
     /**
      * Fetches all citizenship
      */
-    public function fetchAllCitizenship();
+    public function fetchAllCitizenships();
 
     /**
-     * Fetch citizenship by id
+     * Fetch citizenship by Id
      * 
      * @param int $id
      * 
      * @return Citizenship
      */
     public function fetchCitizenshipById(int $id): Citizenship;
+
+    public function createCitizenship($request): Citizenship;
 }

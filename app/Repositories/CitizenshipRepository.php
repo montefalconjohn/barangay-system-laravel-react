@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Citizenship;
 
 use App\Models\Citizenship;
 use Symfony\Component\HttpKernel\Exception\HttpException;
