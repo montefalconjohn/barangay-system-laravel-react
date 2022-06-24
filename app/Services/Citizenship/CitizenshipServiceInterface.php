@@ -3,6 +3,7 @@
 namespace App\Services\Citizenship;
 
 use App\Models\Citizenship;
+use App\Http\Requests\CitizenshipRequest;
 
 interface CitizenshipServiceInterface
 {
@@ -20,5 +21,25 @@ interface CitizenshipServiceInterface
      */
     public function fetchCitizenshipById(int $id): Citizenship;
 
-    public function createCitizenship($request): Citizenship;
+    /**
+     * Create citizenship
+     * 
+     * @param CitizenshipRequest
+     */
+    public function createCitizenship(CitizenshipRequest $request): Citizenship;
+
+    /**
+     * Update citizenship by id
+     * 
+     * @param CitizenshipRequest $request
+     * @param int $id
+     * 
+     * @retur nvoid
+     */
+    public function updateCitizenshipById(CitizenshipRequest $request, int $id): void;
+
+    /**
+     * Delete citizenship by Id
+     */
+    public function deleteCitizenshipById(int $id): void;
 }

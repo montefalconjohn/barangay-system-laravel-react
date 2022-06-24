@@ -3,10 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Citizenship;
+use App\Http\Requests\CitizenshipRequest;
+use App\Http\Resources\CitizenshipResource;
 use Illuminate\Http\Request;
+use App\Services\Citizenship\CitizenshipServiceInterface;
 
 class CitizenshipController extends Controller
 {
+    /** @var CitizenshipServiceInterface */
+    private $citizenshipService;
+
+    /**
+     * CitizenshipController constructor.
+     * 
+     * @param CitizenshipServiceInterface $citizenshipService
+     */
+    public function __construct(CitizenshipServiceInterface $citizenshipService)
+    {
+        $this->citizenshipService = $citizenshipService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,25 +34,15 @@ class CitizenshipController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  CitizenshipRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CitizenshipRequest $request)
     {
-        //
-    }
+        return new CitizenshipResource($this->citizenshipService->createCitizenship($request));
+    } 
 
     /**
      * Display the specified resource.
@@ -44,18 +50,7 @@ class CitizenshipController extends Controller
      * @param  \App\Citizenship  $citizenship
      * @return \Illuminate\Http\Response
      */
-    public function show(Citizenship $citizenship)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Citizenship  $citizenship
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Citizenship $citizenship)
+    public function show(int $id)
     {
         //
     }
@@ -63,11 +58,11 @@ class CitizenshipController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  CitizenshipRequest  $request
      * @param  \App\Citizenship  $citizenship
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Citizenship $citizenship)
+    public function update(CitizenshipRequest $request, int $id)
     {
         //
     }
@@ -78,7 +73,7 @@ class CitizenshipController extends Controller
      * @param  \App\Citizenship  $citizenship
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Citizenship $citizenship)
+    public function destroy(int $id)
     {
         //
     }

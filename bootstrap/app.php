@@ -113,6 +113,7 @@ $app->register(App\Providers\CivilStatusesRepositoryProvider::class);
 $app->register(App\Providers\EmploymentStatusesRepositoryProvider::class);
 $app->register(App\Providers\EmploymentStatusesServiceProvider::class);
 $app->register(App\Providers\CitizenshipRepositoryProvider::class);
+$app->register(App\Providers\CitizenshipServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
