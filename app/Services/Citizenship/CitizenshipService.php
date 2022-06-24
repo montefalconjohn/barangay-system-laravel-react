@@ -53,7 +53,9 @@ class CitizenshipService implements CitizenshipServiceInterface
      */
     public function updateCitizenshipById(CitizenshipRequest $request, int $id): void
     {
-        
+        $citizen = $this->citizenshipRepository->fetchCitizenshipById($id);
+
+        $citizen->fill($request->input())->save();
     }
 
     /**

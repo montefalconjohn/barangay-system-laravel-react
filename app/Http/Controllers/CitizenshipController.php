@@ -64,7 +64,9 @@ class CitizenshipController extends Controller
      */
     public function update(CitizenshipRequest $request, int $id)
     {
-        //
+        $this->citizenshipService->updateCitizenshipById($request, $id);
+
+        return response()->json('Citizenship successfully updated.');
     }
 
     /**
