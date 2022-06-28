@@ -14,10 +14,6 @@ class ResidentsResource extends JsonResource
      */
     public function toArray($request)
     {
-        // relationships
-        $blotters = null;
-        $citizenship = null;
-
         return [
             'type' => 'residents',
             'id' => (string)$this->id,
@@ -30,11 +26,12 @@ class ResidentsResource extends JsonResource
                 'phone_number' => $this->phone_number,
                 'age' => $this->age,
                 'occupation' => $this->occupation,
-                'email' => $this->email,
-                'citizenship' => $this->citizenship
+                'email' => $this->email
             ],
             'relationships' => [
-
+                'barangay' => $this->barangay,
+                'citizenships' => $this->citizenship,
+                'civilStatus' => $this->civilStatus
             ]
         ];
     }

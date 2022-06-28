@@ -18,26 +18,34 @@ class Residents extends Model
         'age',
         'occupation',
         'email',
-        'citizenship',
-        'civil_status_id'
+        'barangay_id',
+        'citizenship_id',
+        'civil_status_id',
     ];
 
     protected $hidden = ['updated_at', 'created_at'];
+
+    // Many residents has one barangay
+    public function barangay()
+    {
+        return $this->belongsTo(Barangay::class);
+    }
+
+    // Many residents has one citizenship
+    public function citizenship()
+    {
+        return $this->belongsTo(Citizenships::class);
+    }
+    
+    // Many residents has one citizenship
+    public function civilStatus()
+    {
+        return $this->belongsTo(CivilStatuses::class);
+    }
 
     // Residents has many blotters but blotters can only have one resident
     public function blotters()
     {
         // return $this
-    }
-
-    // citizenship
-    public function citizenship()
-    {
-
-    }
-
-    public function civilStatus()
-    {
-        
     }
 }

@@ -42,13 +42,14 @@ class ResidentsRequest extends FormRequest
             'birthDate' => 'required|date_format:Y-m-d H:i:s',
             'age' => 'required|int|min:1',
             'phoneNumber' => 'required|digits:11',
-            'occupation' => 'required|string|min:20|max:50',
+            'occupation' => 'required|string|min:10|max:50',
             'purok' => 'required|int|max:11',
             'email' => 'required|email|unique:residents|max:120',
 
             // Relationships
+            'barangay' => 'required|integer|exists:barangay,id',
             'civilStatus' => 'required|integer|exists:civil_statuses,id',
-            'citizenship' => 'required|integer|exists:citizenship,id',
+            'citizenship' => 'required|integer|exists:citizenships,id',
         ];
     }
 
@@ -67,13 +68,14 @@ class ResidentsRequest extends FormRequest
             'birthDate' => 'date_format:Y-m-d H:i:s',
             'age' => 'int|min:1',
             'phoneNumber' => 'digits:11',
-            'occupation' => 'string|min:20|max:50',
+            'occupation' => 'string|min:10|max:50',
             'purok' => 'int|max:11',
             'email' => 'email|unique:residents,' . $this->id .'|max:120',
 
             // Relationships
+            'barangay' => 'integer|exists:barangay,id',
             'civilStatus' => 'integer|exists:civil_statuses,id',
-            'citizenship' => 'integer|exists:citizenship,id',
+            'citizenship' => 'integer|exists:citizenships,id',
         ];
     }
 }

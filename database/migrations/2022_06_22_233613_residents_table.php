@@ -29,6 +29,7 @@ class ResidentsTable extends Migration
             $table->timestamps();
 
             // Many to One relation relationship
+            $table->unsignedBigInteger('barangay_id');
             $table->unsignedBigInteger('civil_status_id');
             $table->unsignedBigInteger('citizenship_id');
         });

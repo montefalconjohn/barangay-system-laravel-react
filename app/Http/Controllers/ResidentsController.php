@@ -2,15 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ResidentsRequest;
+use App\Http\Resources\ResidentsResource;
+use App\Services\Residents\ResidentsServiceInterface;
 
 class ResidentsController extends Controller
 {
+    /** @var ResidentsServiceInterface */
     private $residentsService;
 
-    public function __construct()
+    /**
+     * ResidentsController constructor.
+     * 
+     * @param ResidentsServiceInterface $residentsService
+     */
+    public function __construct(ResidentsServiceInterface $residentsService)
     {
-        
+        $this->residentsService = $residentsService;
     }
 
     /**
@@ -25,11 +33,12 @@ class ResidentsController extends Controller
     /**
       * Store a newly created resource in storage.
       *
-      * @param  EmploymentStatusesRequest $request
+      * @param  ResidentsRequest $request
       * @return \Illuminate\Http\Response
     */
-    public function store(EmploymentStatusesRequest $request)
+    public function store(ResidentsRequest $request)
     {
+      return new ResidentsResource($this->residentsService->createResident($request));
     }
 
     /**
@@ -46,11 +55,11 @@ class ResidentsController extends Controller
     /**
        * Update the specified resource in storage.
        *
-       * @param \Illuminate\Http\Request  $request
+       * @param ResidentsRequest  $request
        * @param int $id
        * @return \Illuminate\Http\Response
     */
-    public function update(StudentsRequest $request, int $id)
+    public function update(ResidentsRequest $request, int $id)
     {
           $this->studentService->updateStudent($request, $id);
   
