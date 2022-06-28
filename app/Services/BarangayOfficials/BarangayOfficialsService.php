@@ -51,8 +51,9 @@ class BarangayOfficialsService implements BarangayOfficialsServiceInterface
             'birthdate' => $request->birthDate,
             'phone_number' => $request->phoneNumber,
             'purok' => $request->purok,
-            'term' => $request->term,
             'email' => $request->email,
+            'start_term' => $request->startTerm,
+            'end_term' => $request->endTerm,
 
             // relationships
             'barangay_id' => $request->barangay,

@@ -42,7 +42,8 @@ class BarangayOfficialsRequest extends FormRequest
                 'phoneNumber' => 'required|digits:11',
                 'email' => 'required|email|unique:barangay_officials|max:120',
                 'purok' => 'required|int|max:11',
-                'term' => 'required|int|max:11',
+                'startTerm' => 'required|date_format:Y-m-d H:i:s',
+                'endTerm' => 'required|date_format:Y-m-d H:i:s',
 
                 // Relationships
                 'barangay' => 'required|integer|exists:barangay,id',
@@ -59,7 +60,7 @@ class BarangayOfficialsRequest extends FormRequest
     {
         return [
             'firstName' => 'string|min:3|max:120',
-            'last_name' => 'string|min:3|max:120',
+            'lastName' => 'string|min:3|max:120',
             'status' => 'string|min:3|status',
             'age' => 'int|min:1',
             'gender' => 'string|max:20',
@@ -68,7 +69,8 @@ class BarangayOfficialsRequest extends FormRequest
             'phoneNumb' => 'digits:11',
             'email' => 'email|unique:barangay_officials,email,'. $this->id .'|max:120',
             'purok' => 'int|max:11',
-            'term' => 'int|max:11',
+            'startTerm' => 'date_format:Y-m-d H:i:s',
+            'endTerm' => 'date_format:Y-m-d H:i:s',
 
             // Relationships
             'barangay' => 'integer|exists:barangay,id',

@@ -24,7 +24,8 @@ class CreateBarangayOfficialsTable extends Migration
             $table->string('phone_number', 11);
             $table->string('email', 120);
             $table->integer('purok');
-            $table->integer('term');
+            $table->dateTime('start_term');
+            $table->dateTime('end_term');
             $table->timestamps();
             
             // Relationships
@@ -39,19 +40,19 @@ class CreateBarangayOfficialsTable extends Migration
                   ->on('barangay')
                   ->onDelete('cascade');  
             
-            // Many to one
+            // // Many to one
             $table->foreign('position_id')
                 ->references('id')
                 ->on('positions')
                 ->onDelete('cascade');   
                 
-            // Many to one
+            // // Many to one
             $table->foreign('civil_status_id')
                 ->references('id')
                 ->on('civil_statuses')
                 ->onDelete('cascade');   
 
-            // One to one    
+            // // One to one    
             $table->foreign('employment_status_id')
                 ->references('id')
                 ->on('employment_statuses')

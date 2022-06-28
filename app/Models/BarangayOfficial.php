@@ -21,7 +21,8 @@ class BarangayOfficial extends Model
         'phone_number',
         'email',
         'purok',
-        'term'
+        'start_term',
+        'end_term'
     ];
 
     // Barangay official has one barangay but barangay can have many barangay official
