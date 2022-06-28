@@ -14,11 +14,6 @@ class BarangayOfficialsResource extends JsonResource
      */
     public function toArray($request)
     {
-        $barangay = $this->whenLoaded('barangay');
-        $position = $this->whenLoaded('position');
-        $civilStatus = $this->whenLoaded('civilStatus');
-        $employmentStatus = $this->whenLoaded('employmentStatus');
-
         return [
             'type' => 'barangay-officials',
             'id' => (string)$this->id,
@@ -37,10 +32,10 @@ class BarangayOfficialsResource extends JsonResource
             ],
             'relationships' => [
                 // Lazy loading
-                'barangay' => new BarangayResource($barangay),
-                'civilStatus' => new CivilStatusesResource($civilStatus),
-                'employmentStatus' => new EmploymentStatusesResource($employmentStatus),
-                'position' => new PositionResource($position)
+                'barangay' => $this->barangay,
+                'civilStatus' => $this->civilStatus,
+                'employmentStatus' => $this->employmentStatus,
+                'position' => $this->position
             ]
         ];
     }
