@@ -64,6 +64,13 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->patch('citizenships/{id}', ['uses' => 'CitizenshipController@update']);
         $router->delete('citizenships/{id}', ['uses' => 'CitizenshipController@destroy']);
 
+        // Citizenship model resource endpoints
+        $router->get('residents/', ['uses' => 'ResidentsController@index']);
+        $router->get('residents/{id}', ['uses' => 'ResidentsController@show']);
+        $router->post('residents', ['uses' => 'ResidentsController@store']);
+        $router->patch('residents/{id}', ['uses' => 'ResidentsController@update']);
+        $router->delete('residents/{id}', ['uses' => 'ResidentsController@destroy']);
+
         // Logout endpoint
         $router->get('logout', ['uses' => 'Auth\AuthController@logout']);
     });
