@@ -20,12 +20,19 @@ class ResidentsResource extends JsonResource
             'attributes' => [
                 'first_name' => $this->first_name,
                 'last_name' => $this->last_name,
-                'gender' => $this->gender,
-                'birthplace' => $this->birthplace,
+                'middle_name' => $this->middle_name,
                 'birthdate' => $this->birthdate,
-                'phone_number' => $this->phone_number,
+                'birthplace' => $this->birthplace,
                 'age' => $this->age,
+                'zone' => $this->zone,
+                'household' => $this->household,
+                'household_number' => $this->household_number,
+                'blood_type' => $this->blood_type,
                 'occupation' => $this->occupation,
+                'religion' => $this->religion,
+                'address' => $this->address,
+                'gender' => $this->gender,
+                'phone_number' => $this->phone_number,
                 'email' => $this->email
             ],
             'relationships' => [
