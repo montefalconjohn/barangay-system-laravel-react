@@ -11,14 +11,6 @@ class ResidentsRepository implements ResidentsRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function fetchAllResidentsByBarangayId(int $barangayId)
-    {
-        
-    }
-
-    /**
-     * @inheritDoc
-     */
     public function fetchResidentById(int $residentId): Residents
     {
         $resident = Residents::find($residentId);
