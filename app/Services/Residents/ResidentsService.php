@@ -63,7 +63,9 @@ class ResidentsService implements ResidentsServiceInterface
      */
     public function updateResidentById(ResidentsRequest $request, int $id): void
     {
+        $resident = $this->residentsRepository->fetchResidentById($id);
         
+        $resident->fill($request->input())->save();
     }
 
     /**
@@ -71,6 +73,8 @@ class ResidentsService implements ResidentsServiceInterface
      */
     public function deleteResidentById(int $id): void
     {
-        
+        $resident = $this->residentsRepository->fetchResidentById($id);
+
+        $resident->delete();
     }
 }

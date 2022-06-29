@@ -52,9 +52,9 @@ class ResidentsController extends Controller
     */
     public function update(ResidentsRequest $request, int $id)
     {
-          $this->studentService->updateStudent($request, $id);
+         $this->residentsService->updateResidentById($request, $id);
   
-          return response()->json('Student successfully updated.');
+          return response()->json('Resident successfully updated.');
     }
 
     /**
@@ -65,8 +65,8 @@ class ResidentsController extends Controller
     */
     public function destroy(int $id)
     {
-          $this->studentService->deleteStudent($id);
-          
-          return response()->json('Student successfully deleted.');
+          $this->residentsService->deleteResidentById($id);
+
+          return response()->json('Resident successfully deleted.');
     }
 }
