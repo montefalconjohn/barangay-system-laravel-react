@@ -5,15 +5,21 @@ namespace App\Services\Residents;
 use App\Http\Requests\ResidentsRequest;
 use App\Services\Residents\ResidentsServiceInterface;
 use App\Models\Residents;
+use App\Repositories\Residents\ResidentsRepositoryInterface;
 
 class ResidentsService implements ResidentsServiceInterface
 {
+    /** @var ResidentsRepositoryInterface */
+    private $residentsRepository;
+    
     /**
-     * @inheritDoc
+     * ResidentsService constructor.
+     * 
+     * @param ResidentsRepositoryInterface $residentsRepository
      */
-    public function fetchAllResidentsByBaranggayId(int $baranggayId)
+    public function __construct(ResidentsRepositoryInterface $residentsRepository)
     {
-        
+        $this->residentsRepository = $residentsRepository;
     }
 
     /**
@@ -21,7 +27,7 @@ class ResidentsService implements ResidentsServiceInterface
      */
     public function fetchResidentById(int $id): Residents
     {
-        
+        return $this->residentsRepository->fetchResidentById($id);
     }
 
     /**

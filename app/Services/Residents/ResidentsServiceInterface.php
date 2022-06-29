@@ -8,13 +8,6 @@ use App\Http\Requests\ResidentsRequest;
 interface ResidentsServiceInterface
 {
     /**
-     * Fetches all Residents by baranggay id
-     * 
-     * @param int $baranggayId
-     */
-    public function fetchAllResidentsByBaranggayId(int $baranggayId);
-
-    /**
      * Fetches specific resident by id
      * 
      * @param int $id

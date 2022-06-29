@@ -22,15 +22,6 @@ class ResidentsController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-    */
-    public function index()
-    {
-    }
-
-    /**
       * Store a newly created resource in storage.
       *
       * @param  ResidentsRequest $request
@@ -49,7 +40,7 @@ class ResidentsController extends Controller
     */
       public function show(int $id)
       {
-          return new StudentsResource($this->studentService->fetchStudentByStudentId($id));
+          return new ResidentsResource($this->residentsService->fetchResidentById($id));
       }
 
     /**
