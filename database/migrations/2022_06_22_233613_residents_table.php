@@ -17,14 +17,19 @@ class ResidentsTable extends Migration
             $table->id();
             $table->string('first_name', 120);
             $table->string('last_name', 120);
-            $table->boolean('gender');
-            $table->integer('purok');
-            $table->string('address', 500);
-            $table->string('birthplace', 50);
+            $table->string('middle_name', 120);
             $table->dateTime('birthdate');
+            $table->string('birthplace', 50);
             $table->integer('age');
-            $table->string('phone_number', 11);
+            $table->integer('zone');
+            $table->integer('household');
+            $table->integer('household_number');
+            $table->string('blood_type', 50);
             $table->string('occupation', 50);
+            $table->string('religion', 50);
+            $table->boolean('gender');
+            $table->string('address', 500);
+            $table->string('phone_number', 11);
             $table->string('email', 120);
             $table->timestamps();
 
