@@ -23,6 +23,10 @@ class BarangayResource extends JsonResource
                 'province' => $this->province,
                 'email' => $this->email,
                 'phone_number' => $this->phone_number
+            ],
+            'relationships' => [
+                'barangayOfficials' => $this->barangayOfficials,
+                'residents' => $this->residents
             ]
         ];
     }
