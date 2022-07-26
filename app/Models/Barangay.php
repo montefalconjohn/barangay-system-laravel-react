@@ -9,6 +9,8 @@ class Barangay extends Model
 {
     use HasFactory;
     
+    protected $table = "barangays";
+    
     protected $fillable = [
         'name',
         'municipality', 

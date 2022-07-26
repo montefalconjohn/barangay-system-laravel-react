@@ -46,7 +46,7 @@ class BarangayOfficialsRequest extends FormRequest
                 'endTerm' => 'required|date_format:Y-m-d H:i:s',
 
                 // Relationships
-                'barangay' => 'required|integer|exists:barangay,id',
+                'barangay' => 'required|integer|exists:barangays,id',
                 'civilStatus' => 'required|integer|exists:civil_statuses,id',
                 'employmentStatus' => 'required|integer|exists:employment_statuses,id',
                 'position' => 'required|integer|exists:positions,id'
@@ -73,7 +73,7 @@ class BarangayOfficialsRequest extends FormRequest
             'endTerm' => 'date_format:Y-m-d H:i:s',
 
             // Relationships
-            'barangay' => 'integer|exists:barangay,id',
+            'barangay' => 'integer|exists:barangays,id',
             'civilStatus' => 'integer|exists:civil_statuses,id',
             'employmentStatus' => 'integer|exists:employment_statuses,id',
             'position' => 'required|integer|exists:positions,id'
