@@ -15,7 +15,7 @@ class BarangayResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'type' => 'barangay',
+            'type' => 'barangays',
             'id' => (string)$this->id,
             'attributes' => [
                 'name' => $this->name,

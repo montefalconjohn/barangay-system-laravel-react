@@ -33,10 +33,10 @@ class BarangayRequest extends FormRequest
     private function postValidation(): array
     {
         return [
-            'name' => 'required|string|max:120|unique:barangay',
+            'name' => 'required|string|max:120|unique:barangays',
             'municipality' => 'required|string|max:120',
             'province' => 'required|string|max:120',
-            'email' => 'required|email|unique:barangay|max:120',
+            'email' => 'required|email|unique:barangays|max:120',
             'phone_number' => 'digits:11'
         ];
     }
@@ -47,10 +47,10 @@ class BarangayRequest extends FormRequest
     private function patchValidation(): array
     {
         return [
-            'name' => 'string|max:120',
+            'name' => 'string|unique:barangays,name,'. $this->id . '|max:120',
             'municipality' => 'string|max:120',
             'province' => 'string|max:120',
-            'email' => 'email|unique:barangay,email,'. $this->id .'|max:120',
+            'email' => 'email|unique:barangays,email,'. $this->id .'|max:120',
             'phone_number' => 'digits:11'
         ];
     }

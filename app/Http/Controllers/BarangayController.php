@@ -32,7 +32,7 @@ class BarangayController extends Controller
     {
         // It automatically checks the validation
         // $request->validated();
-            
+        
         return new BarangayResource($this->barangayService->createBarangay($request));
     }
   

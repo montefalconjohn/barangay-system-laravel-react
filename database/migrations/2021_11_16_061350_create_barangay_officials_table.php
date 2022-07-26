@@ -37,7 +37,7 @@ class CreateBarangayOfficialsTable extends Migration
             // linking the relationship ManyToOne
             $table->foreign('barangay_id')
                   ->references('id')
-                  ->on('barangay')
+                  ->on('barangays')
                   ->onDelete('cascade');  
             
             // // Many to one
