@@ -2,7 +2,7 @@
 
 namespace App\Services\Citizenship;
 
-use App\Models\Citizenships;
+use App\Models\Citizenship;
 use App\Http\Requests\CitizenshipRequest;
 
 interface CitizenshipServiceInterface
@@ -17,18 +17,18 @@ interface CitizenshipServiceInterface
      * 
      * @param int $id
      * 
-     * @return Citizenships
+     * @return Citizenship
      */
-    public function fetchCitizenshipById(int $id): Citizenships;
+    public function fetchCitizenshipById(int $id): Citizenship;
 
     /**
      * Create citizenship
      * 
      * @param CitizenshipRequest
      * 
-     * @return Citizenships
+     * @return Citizenship
      */
-    public function createCitizenship(CitizenshipRequest $request): Citizenships;
+    public function createCitizenship(CitizenshipRequest $request): Citizenship;
 
     /**
      * Update citizenship by id

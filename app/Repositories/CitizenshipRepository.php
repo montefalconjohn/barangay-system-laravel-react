@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Citizenship;
 
-use App\Models\Citizenships;
+use App\Models\Citizenship;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class CitizenshipRepository implements CitizenshipRepositoryInterface
@@ -12,15 +12,15 @@ class CitizenshipRepository implements CitizenshipRepositoryInterface
      */
     public function fetchAllCitizenship()
     {
-        return Citizenships::all();
+        return Citizenship::all();
     }
 
     /**
      * @inheritDoc
      */
-    public function fetchCitizenshipById(int $id): Citizenships
+    public function fetchCitizenshipById(int $id): Citizenship
     {
-        $citizenship = Citizenships::find($id);
+        $citizenship = Citizenship::find($id);
 
         if (!$citizenship) {
             throw new HttpException(500, "Citizenship with {$id} does not exist.");

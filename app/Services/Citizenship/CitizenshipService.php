@@ -4,7 +4,7 @@ namespace App\Services\Citizenship;
 
 use App\Http\Requests\CitizenshipRequest;
 use App\Services\Citizenship\CitizenshipServiceInterface;
-use App\Models\Citizenships;
+use App\Models\Citizenship;
 use App\Repositories\Citizenship\CitizenshipRepositoryInterface;
 
 class CitizenshipService implements CitizenshipServiceInterface
@@ -33,7 +33,7 @@ class CitizenshipService implements CitizenshipServiceInterface
     /**
      * @inheritDoc
      */
-    public function fetchCitizenshipById(int $id): Citizenships
+    public function fetchCitizenshipById(int $id): Citizenship
     {
         return $this->citizenshipRepository->fetchCitizenshipById($id);
     }
@@ -41,9 +41,9 @@ class CitizenshipService implements CitizenshipServiceInterface
     /**
      * @inheritDoc
      */
-    public function createCitizenship(CitizenshipRequest $request): Citizenships
+    public function createCitizenship(CitizenshipRequest $request): Citizenship
     {
-        return Citizenships::create([
+        return Citizenship::create([
             'citizenship' => $request->citizenship
         ]);
     }

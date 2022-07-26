@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Citizenship;
 
-use App\Models\Citizenships;
+use App\Models\Citizenship;
 
 interface CitizenshipRepositoryInterface
 {
@@ -16,7 +16,7 @@ interface CitizenshipRepositoryInterface
      * 
      * @param int $id
      * 
-     * @return Citizenships
+     * @return Citizenship
      */
-    public function fetchCitizenshipById(int $id): Citizenships;
+    public function fetchCitizenshipById(int $id): Citizenship;
 }
