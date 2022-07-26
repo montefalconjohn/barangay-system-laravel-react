@@ -114,8 +114,8 @@ $app->register(App\Providers\EmploymentStatusRepositoryProvider::class);
 $app->register(App\Providers\EmploymentStatusServiceProvider::class);
 $app->register(App\Providers\CitizenshipRepositoryProvider::class);
 $app->register(App\Providers\CitizenshipServiceProvider::class);
-$app->register(App\Providers\ResidentsServiceProvider::class);
-$app->register(App\Providers\ResidentsRepositoryProvider::class);
+$app->register(App\Providers\ResidentServiceProvider::class);
+$app->register(App\Providers\ResidentRepositoryProvider::class);
 
 /*
 |--------------------------------------------------------------------------

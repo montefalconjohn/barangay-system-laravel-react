@@ -2,18 +2,18 @@
 
 namespace App\Repositories\Residents;
 
-use App\Repositories\Residents\ResidentsRepositoryInterface;
-use App\Models\Residents;
+use App\Repositories\Residents\ResidentRepositoryInterface;
+use App\Models\Resident;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-class ResidentsRepository implements ResidentsRepositoryInterface
+class ResidentRepository implements ResidentRepositoryInterface
 {
     /**
      * @inheritDoc
      */
-    public function fetchResidentById(int $residentId): Residents
+    public function fetchResidentById(int $residentId): Resident
     {
-        $resident = Residents::find($residentId);
+        $resident = Resident::find($residentId);
 
         if (!$resident) {
             throw new HttpException(500, "Resident with {$residentId} does not exist.");

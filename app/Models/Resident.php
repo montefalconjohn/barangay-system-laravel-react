@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Residents extends Model
+class Resident extends Model
 {
     protected $fillable = [
         'first_name',
@@ -39,13 +39,13 @@ class Residents extends Model
     // Many residents has one citizenship
     public function citizenship()
     {
-        return $this->belongsTo(Citizenships::class);
+        return $this->belongsTo(Citizenship::class);
     }
     
     // Many residents has one citizenship
     public function civilStatus()
     {
-        return $this->belongsTo(CivilStatuses::class);
+        return $this->belongsTo(CivilStatus::class);
     }
 
     // Residents has many blotters but blotters can only have one resident

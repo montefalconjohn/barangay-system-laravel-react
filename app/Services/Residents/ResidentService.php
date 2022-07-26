@@ -2,40 +2,40 @@
 
 namespace App\Services\Residents;
 
-use App\Http\Requests\ResidentsRequest;
-use App\Services\Residents\ResidentsServiceInterface;
-use App\Models\Residents;
-use App\Repositories\Residents\ResidentsRepositoryInterface;
+use App\Http\Requests\ResidentRequest;
+use App\Services\Residents\ResidentServiceInterface;
+use App\Models\Resident;
+use App\Repositories\Residents\ResidentRepositoryInterface;
 
-class ResidentsService implements ResidentsServiceInterface
+class ResidentService implements ResidentServiceInterface
 {
     /** @var ResidentsRepositoryInterface */
-    private $residentsRepository;
+    private $residentRepository;
     
     /**
      * ResidentsService constructor.
      * 
-     * @param ResidentsRepositoryInterface $residentsRepository
+     * @param ResidentRepositoryInterface $residentsRepository
      */
-    public function __construct(ResidentsRepositoryInterface $residentsRepository)
+    public function __construct(ResidentRepositoryInterface $residentRepository)
     {
-        $this->residentsRepository = $residentsRepository;
+        $this->residentRepository = $residentRepository;
     }
 
     /**
      * @inheritDoc
      */
-    public function fetchResidentById(int $id): Residents
+    public function fetchResidentById(int $id): Resident
     {
-        return $this->residentsRepository->fetchResidentById($id);
+        return $this->residentRepository->fetchResidentById($id);
     }
 
     /**
      * @inheritDoc
      */
-    public function createResident(ResidentsRequest $request): Residents
+    public function createResident(ResidentRequest $request): Resident
     {
-        return Residents::create([
+        return Resident::create([
             'first_name' => $request->firstName,
             'last_name' => $request->lastName,
             'middle_name' => $request->middleName,
@@ -61,9 +61,9 @@ class ResidentsService implements ResidentsServiceInterface
     /**
      * @inheritDoc
      */
-    public function updateResidentById(ResidentsRequest $request, int $id): void
+    public function updateResidentById(ResidentRequest $request, int $id): void
     {
-        $resident = $this->residentsRepository->fetchResidentById($id);
+        $resident = $this->residentRepository->fetchResidentById($id);
         
         $resident->fill($request->input())->save();
     }
@@ -73,7 +73,7 @@ class ResidentsService implements ResidentsServiceInterface
      */
     public function deleteResidentById(int $id): void
     {
-        $resident = $this->residentsRepository->fetchResidentById($id);
+        $resident = $this->residentRepository->fetchResidentById($id);
 
         $resident->delete();
     }

@@ -2,10 +2,10 @@
 
 namespace App\Services\Residents;
 
-use App\Models\Residents;
-use App\Http\Requests\ResidentsRequest;
+use App\Models\Resident;
+use App\Http\Requests\ResidentRequest;
 
-interface ResidentsServiceInterface
+interface ResidentServiceInterface
 {
     /**
      * Fetches specific resident by id
@@ -14,26 +14,26 @@ interface ResidentsServiceInterface
      * 
      * @return Residents
      */
-    public function fetchResidentById(int $id): Residents;
+    public function fetchResidentById(int $id): Resident;
 
     /**
      * Create Resident
      * 
-     * @param ResidentsRequest $request
+     * @param ResidentRequest $request
      * 
      * @return Residents
      */
-    public function createResident(ResidentsRequest $request): Residents;
+    public function createResident(ResidentRequest $request): Resident;
 
     /**
      * Update resident by Id
      * 
-     * @param ResidentsRequest $request
+     * @param ResidentRequest $request
      * @param int $id
      * 
      * @return void
      */
-    public function updateResidentById(ResidentsRequest $request, int $id): void;
+    public function updateResidentById(ResidentRequest $request, int $id): void;
 
     /**
      * Delete specific resident by id

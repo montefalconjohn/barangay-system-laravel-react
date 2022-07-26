@@ -2,9 +2,9 @@
 
 namespace App\Repositories\Residents;
 
-use App\Models\Residents;
+use App\Models\Resident;
 
-interface ResidentsRepositoryInterface
+interface ResidentRepositoryInterface
 {
     /**
      * Fetches resident by resident id
@@ -13,5 +13,5 @@ interface ResidentsRepositoryInterface
      * 
      * @return Residents
      */
-    public function fetchResidentById(int $residentId): Residents;
+    public function fetchResidentById(int $residentId): Resident;
 }

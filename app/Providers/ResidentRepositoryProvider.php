@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\Residents\ResidentsRepository;
+use App\Repositories\Residents\ResidentRepository;
 
-class ResidentsRepositoryProvider extends ServiceProvider
+class ResidentRepositoryProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -24,6 +24,6 @@ class ResidentsRepositoryProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Repositories\Residents\ResidentsRepositoryInterface', ResidentsRepository::class);
+        $this->app->bind('App\Repositories\Residents\ResidentRepositoryInterface', ResidentRepository::class);
     }
 }

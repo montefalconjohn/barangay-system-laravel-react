@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Anik\Form\FormRequest;
 use Illuminate\Http\Request;
 
-class ResidentsRequest extends FormRequest
+class ResidentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -51,7 +51,7 @@ class ResidentsRequest extends FormRequest
             'email' => 'required|email|unique:residents|max:120',
 
             // Relationships
-            'barangay' => 'required|integer|exists:barangay,id',
+            'barangay' => 'required|integer|exists:barangays,id',
             'civilStatus' => 'required|integer|exists:civil_statuses,id',
             'citizenship' => 'required|integer|exists:citizenships,id',
         ];
@@ -81,7 +81,7 @@ class ResidentsRequest extends FormRequest
             'email' => 'email|unique:residents,' . $this->id .'|max:120',
 
             // Relationships
-            'barangay' => 'integer|exists:barangay,id',
+            'barangay' => 'integer|exists:barangays,id',
             'civilStatus' => 'integer|exists:civil_statuses,id',
             'citizenship' => 'integer|exists:citizenships,id',
         ];

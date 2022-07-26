@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Services\Residents\ResidentsService;
+use App\Services\Residents\ResidentService;
 
-class ResidentsServiceProvider extends ServiceProvider
+class ResidentServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -24,7 +24,7 @@ class ResidentsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Services\Residents\ResidentsServiceInterface', ResidentsService::class);
+        $this->app->bind('App\Services\Residents\ResidentServiceInterface', ResidentService::class);
     
     }
 }
