@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Barangays;
 
 
 use App\Models\Barangay;
-use App\Repositories\BarangayRepositoryInterface;
+use App\Repositories\Barangays\BarangayRepositoryInterface;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class BarangayRepository implements BarangayRepositoryInterface

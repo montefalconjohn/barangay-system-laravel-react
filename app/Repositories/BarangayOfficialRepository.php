@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\BarangayOfficials;
 
 use App\Models\BarangayOfficial;
 use Symfony\Component\HttpKernel\Exception\HttpException;

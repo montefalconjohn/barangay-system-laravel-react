@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Repositories\BarangayRepository;
+use App\Repositories\Barangays\BarangayRepository;
 use Illuminate\Support\ServiceProvider;
 
 class BarangayRepositoryProvider extends ServiceProvider
@@ -24,6 +24,6 @@ class BarangayRepositoryProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Repositories\BarangayRepositoryInterface', BarangayRepository::class);
+        $this->app->bind('App\Repositories\Barangays\BarangayRepositoryInterface', BarangayRepository::class);
     }
 }

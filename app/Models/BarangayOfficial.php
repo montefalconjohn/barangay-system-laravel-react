@@ -40,12 +40,12 @@ class BarangayOfficial extends Model
     // Barangay official has one civilStatus but civilStatus can have many barangay official
     public function civilStatus()
     {
-        return $this->belongsTo(CivilStatuses::class);
+        return $this->belongsTo(CivilStatus::class);
     }
 
     // Barangay official has one employmentStatus but employmentStatus can have many barangay official
     public function employmentStatus()
     {
-        return $this->belongsTo(EmploymentStatuses::class);
+        return $this->belongsTo(EmploymentStatus::class);
     }
 }

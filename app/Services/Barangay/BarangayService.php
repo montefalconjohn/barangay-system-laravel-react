@@ -4,7 +4,7 @@ namespace App\Services\Barangay;
 
 use App\Models\Barangay;
 use App\Services\Barangay\BarangayServiceInterface;
-use App\Repositories\BarangayRepositoryInterface;
+use App\Repositories\Barangays\BarangayRepositoryInterface;
 
 class BarangayService implements BarangayServiceInterface 
 {

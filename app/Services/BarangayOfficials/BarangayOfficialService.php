@@ -4,7 +4,7 @@ namespace App\Services\BarangayOfficials;
 
 use App\Models\BarangayOfficial;
 use App\Services\BarangayOfficials\BarangayOfficialServiceInterface;
-use App\Repositories\BarangayOfficialRepositoryInterface;
+use App\Repositories\BarangayOfficials\BarangayOfficialRepositoryInterface;
 use App\Http\Requests\BarangayOfficialRequest;
 
 class BarangayOfficialService implements BarangayOfficialServiceInterface

@@ -34,6 +34,6 @@ class Barangay extends Model
      */
     public function residents()
     {
-        return $this->hasMany(Residents::class);
+        return $this->hasMany(Resident::class);
     }
 }
