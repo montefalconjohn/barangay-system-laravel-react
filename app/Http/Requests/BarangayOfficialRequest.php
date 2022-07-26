@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Anik\Form\FormRequest;
 use Illuminate\Http\Request;
 
-class BarangayOfficialsRequest extends FormRequest
+class BarangayOfficialRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

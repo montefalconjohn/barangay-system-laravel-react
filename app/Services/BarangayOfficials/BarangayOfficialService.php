@@ -3,20 +3,20 @@
 namespace App\Services\BarangayOfficials;
 
 use App\Models\BarangayOfficial;
-use App\Services\BarangayOfficials\BarangayOfficialsServiceInterface;
-use App\Repositories\BarangayOfficialsRepositoryInterface;
+use App\Services\BarangayOfficials\BarangayOfficialServiceInterface;
+use App\Repositories\BarangayOfficialRepositoryInterface;
 
-class BarangayOfficialsService implements BarangayOfficialsServiceInterface
+class BarangayOfficialService implements BarangayOfficialServiceInterface
 {
-    /** @var BarangayOfficialsRepositoryInterface */
+    /** @var BarangayOfficialRepositoryInterface */
     private $barangayOfficialRepository;
 
     /**
      * BarangayOfficialService constructor
      * 
-     * @param BarangayOfficialsRepositoryInterface
+     * @param BarangayOfficialRepositoryInterface
      */
-    public function __construct(BarangayOfficialsRepositoryInterface $barangayOfficialRepository)
+    public function __construct(BarangayOfficialRepositoryInterface $barangayOfficialRepository)
     {
         $this->barangayOfficialRepository = $barangayOfficialRepository;
     }

@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\BarangayOfficial;
 
-interface BarangayOfficialsRepositoryInterface
+interface BarangayOfficialRepositoryInterface
 {
     /**
      * Fetch a certain barangay by ID

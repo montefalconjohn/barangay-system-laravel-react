@@ -4,7 +4,7 @@ namespace App\Services\BarangayOfficials;
 
 use App\Models\BarangayOfficial;
 
-interface BarangayOfficialsServiceInterface
+interface BarangayOfficialServiceInterface
 {
     /**
      * Fetches all barangay officials

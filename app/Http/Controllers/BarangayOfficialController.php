@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BarangayOfficialsRequest;
-use App\Http\Resources\BarangayOfficialsResource;
+use App\Http\Requests\BarangayOfficialRequest;
+use App\Http\Resources\BarangayOfficialResource;
 use App\Models\BarangayOfficial;
 use Illuminate\Http\Request;
-use App\Services\BarangayOfficials\BarangayOfficialsServiceInterface;
+use App\Services\BarangayOfficials\BarangayOfficialServiceInterface;
 
 class BarangayOfficialController extends Controller
 {
-    /** @var BarangayOfficialsServiceInterface */
+    /** @var BarangayOfficialServiceInterface */
     private $barangayOfficialService;
 
     /**
@@ -18,7 +18,7 @@ class BarangayOfficialController extends Controller
      * 
      * @param BarangayOfficialsServiceInterface
      */
-    public function __construct(BarangayOfficialsServiceInterface $barangayOfficialService)
+    public function __construct(BarangayOfficialServiceInterface $barangayOfficialService)
     {
         $this->barangayOfficialService = $barangayOfficialService;
     }
@@ -30,18 +30,18 @@ class BarangayOfficialController extends Controller
      */
     public function index()
     {
-        return BarangayOfficialsResource::collection($this->barangayOfficialService->fetchBarangayOfficials());
+        return BarangayOfficialResource::collection($this->barangayOfficialService->fetchBarangayOfficials());
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  BarangayOfficialsRequest  $request
+     * @param  BarangayOfficialRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BarangayOfficialsRequest $request)
+    public function store(BarangayOfficialRequest $request)
     {
-        return new BarangayOfficialsResource($this->barangayOfficialService->createBarangayOfficial($request));
+        return new BarangayOfficialResource($this->barangayOfficialService->createBarangayOfficial($request));
     }
 
     /**
@@ -52,17 +52,17 @@ class BarangayOfficialController extends Controller
      */
     public function show(int $id)
     {
-        return new BarangayOfficialsResource($this->barangayOfficialService->fetchBarangayOfficialById($id));
+        return new BarangayOfficialResource($this->barangayOfficialService->fetchBarangayOfficialById($id));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  BarangayOfficialsRequest  $request
+     * @param  BarangayOfficialRequest  $request
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BarangayOfficialsRequest $request, int $id)
+    public function update(BarangayOfficialRequest $request, int $id)
     {
         $this->barangayOfficialService->updateBarangayOfficialById($request, $id);
 

@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Models\BarangayOfficial;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-class BarangayOfficialsRepository implements BarangayOfficialsRepositoryInterface
+class BarangayOfficialRepository implements BarangayOfficialRepositoryInterface
 {
     /**
      * @inheritDoc

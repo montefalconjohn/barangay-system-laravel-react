@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Services\BarangayOfficials\BarangayOfficialsService;
+use App\Services\BarangayOfficials\BarangayOfficialService;
 use Illuminate\Support\ServiceProvider;
 
-class BarangayOfficialsServiceProvider extends ServiceProvider
+class BarangayOfficialServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -24,6 +24,6 @@ class BarangayOfficialsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Services\BarangayOfficials\BarangayOfficialsServiceInterface', BarangayOfficialsService::class);
+        $this->app->bind('App\Services\BarangayOfficials\BarangayOfficialServiceInterface', BarangayOfficialService::class);
     }
 }

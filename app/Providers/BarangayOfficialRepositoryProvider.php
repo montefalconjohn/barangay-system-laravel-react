@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\BarangayOfficialsRepository;
+use App\Repositories\BarangayOfficialRepository;
 
-class BarangayOfficialsRepositoryProvider extends ServiceProvider
+class BarangayOfficialRepositoryProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -24,6 +24,6 @@ class BarangayOfficialsRepositoryProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Repositories\BarangayOfficialsRepositoryInterface', BarangayOfficialsRepository::class);
+        $this->app->bind('App\Repositories\BarangayOfficialRepositoryInterface', BarangayOfficialRepository::class);
     }
 }
