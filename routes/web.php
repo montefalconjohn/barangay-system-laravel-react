@@ -24,10 +24,10 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     // Temporary delete
     $router->group(['middleware' => 'auth'], function () use ($router) {
         // Barangay Information endpoints
-        $router->get('barangay/{id}', ['uses' => 'BarangayController@show']);
-        $router->post('barangay', ['uses' => 'BarangayController@store']);
-        $router->patch('barangay/{id}', ['uses' => 'BarangayController@update']);
-        $router->delete('barangay/{id}', ['uses' => 'BarangayController@destroy']);
+        $router->get('barangays/{id}', ['uses' => 'BarangayController@show']);
+        $router->post('barangays', ['uses' => 'BarangayController@store']);
+        $router->patch('barangays/{id}', ['uses' => 'BarangayController@update']);
+        $router->delete('barangays/{id}', ['uses' => 'BarangayController@destroy']);
 
         // Barangay Official entity endpoints
         $router->get('barangay-officials/', ['uses' => 'BarangayOfficialController@index']);

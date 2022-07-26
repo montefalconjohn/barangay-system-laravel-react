@@ -13,7 +13,7 @@ class Barangays extends Migration
      */
     public function up()
     {
-        Schema::create('barangay', function (Blueprint $table) {
+        Schema::create('barangays', function (Blueprint $table) {
             $table->id();
             $table->string('name', 120);
             $table->string('municipality', 120);
@@ -35,6 +35,6 @@ class Barangays extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('barangay');
+        Schema::dropIfExists('barangays');
     }
 }
