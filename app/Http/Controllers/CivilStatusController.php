@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CivilStatusesRequest;
+use App\Http\Requests\CivilStatusRequest;
 use Illuminate\Http\Request;
-use App\Http\Resources\CivilStatusesResource;
-use App\Services\CivilStatuses\CivilStatusesServiceInterface;
+use App\Http\Resources\CivilStatusResource;
+use App\Services\CivilStatuses\CivilStatusServiceInterface;
 
 class CivilStatusController extends Controller
 {
     /** @var CivilStatusesServiceInterface */
-    private $civilStatusesService;
+    private $civilStatusService;
     
     /**
      * CivilStatusesController constroller
      * 
-     * @param CivilStatusesServiceInterface
+     * @param CivilStatusServiceInterface
      */
-    public function __construct(CivilStatusesServiceInterface $civilStatusesService)
+    public function __construct(CivilStatusServiceInterface $civilStatusService)
     {
-        $this->civilStatusesService = $civilStatusesService;
+        $this->civilStatusService = $civilStatusService;
     }
 
     /**
@@ -29,28 +29,18 @@ class CivilStatusController extends Controller
      */
     public function index()
     {
-        return CivilStatusesResource::collection($this->civilStatusesService->fetchCivilStatuses());
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return CivilStatusResource::collection($this->civilStatusService->fetchCivilStatuses());
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  CivilStatusesRequest $request
+     * @param  CivilStatusRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CivilStatusesRequest $request)
+    public function store(CivilStatusRequest $request)
     {
-        return new CivilStatusesResource($this->civilStatusesService->createCivilStatus($request));
+        return new CivilStatusResource($this->civilStatusService->createCivilStatus($request));
     }
 
     /**
@@ -61,30 +51,19 @@ class CivilStatusController extends Controller
      */
     public function show($id)
     {
-        return new CivilStatusesResource($this->civilStatusesService->fetchCivilStatusById($id));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return new CivilStatusResource($this->civilStatusService->fetchCivilStatusById($id));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\CivilStatusesRequest  $request
+     * @param  \Illuminate\Http\CivilStatusRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CivilStatusesRequest $request, $id)
+    public function update(CivilStatusRequest $request, $id)
     {
-        $this->civilStatusesService->updateCivilStatusById($request, $id);
+        $this->civilStatusService->updateCivilStatusById($request, $id);
     }
 
     /**
@@ -95,7 +74,7 @@ class CivilStatusController extends Controller
      */
     public function destroy($id)
     {
-        $this->civilStatusesService->deleteCivilStatusById($id);
+        $this->civilStatusService->deleteCivilStatusById($id);
 
         return response()->json('Civil status sucessfully deleted.');
     }

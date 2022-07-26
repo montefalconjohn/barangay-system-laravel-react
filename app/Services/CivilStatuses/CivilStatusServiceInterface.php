@@ -2,10 +2,10 @@
 
 namespace App\Services\CivilStatuses;
 
-use App\Models\CivilStatuses;
+use App\Models\CivilStatus;
 use App\Http\Requests\CivilStatusesRequest;
 
-interface CivilStatusesServiceInterface
+interface CivilStatusServiceInterface
 {
     /**
      * Fetches all civil statuses
@@ -19,16 +19,16 @@ interface CivilStatusesServiceInterface
      * 
      * @return CivilStatuses
      */
-    public function fetchCivilStatusById(int $id): CivilStatuses;
+    public function fetchCivilStatusById(int $id): CivilStatus;
 
     /**
      * Create Civil Status
      * 
      * @param CivilStatusesRequest $request
      * 
-     * @return CivilStatuses
+     * @return CivilStatus
      */
-    public function createCivilStatus($request): CivilStatuses;
+    public function createCivilStatus($request): CivilStatus;
 
     /**
      * Update a specific civil status name by id

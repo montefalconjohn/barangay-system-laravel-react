@@ -2,9 +2,9 @@
 
 namespace App\Repositories\CivilStatuses;
 
-use App\Models\CivilStatuses;
+use App\Models\CivilStatus;
 
-interface CivilStatusesRepositoryInterface
+interface CivilStatusRepositoryInterface
 {
     /**
      * Fetches all civil statuses
@@ -16,5 +16,5 @@ interface CivilStatusesRepositoryInterface
      * 
      * @return CivilStatuses
      */
-    public function getCivilStatusById(int $id): CivilStatuses;
+    public function getCivilStatusById(int $id): CivilStatus;
 }

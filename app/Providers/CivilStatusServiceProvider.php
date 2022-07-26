@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Services\CivilStatuses\CivilStatusesService;
+use App\Services\CivilStatuses\CivilStatusService;
 use Illuminate\Support\ServiceProvider;
 
 class CivilStatusServiceProvider extends ServiceProvider
@@ -24,7 +24,7 @@ class CivilStatusServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Services\CivilStatuses\CivilStatusesServiceInterface', CivilStatusesService::class);
+        $this->app->bind('App\Services\CivilStatuses\CivilStatusServiceInterface', CivilStatusService::class);
     
     }
 }

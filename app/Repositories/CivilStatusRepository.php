@@ -3,17 +3,17 @@
 namespace App\Repositories\CivilStatuses;
 
 use App\Repositories\CivilStatuses\CivilStatusesRepositoryInterface;
-use App\Models\CivilStatuses;
+use App\Models\CivilStatus;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-class CivilStatusesRepository implements CivilStatusesRepositoryInterface
+class CivilStatusRepository implements CivilStatusRepositoryInterface
 {
     /**
      * @inheritDoc
      */
-    public function getCivilStatusById(int $id): CivilStatuses
+    public function getCivilStatusById(int $id): CivilStatus
     {
-        $civilStatus = CivilStatuses::find($id);
+        $civilStatus = CivilStatus::find($id);
 
         if (!$civilStatus) {
             throw new HttpException(500, "Civil Status with {$id} does not exist.");
@@ -27,6 +27,6 @@ class CivilStatusesRepository implements CivilStatusesRepositoryInterface
      */
     public function getAllCivilStatuses()
     {
-        return CivilStatuses::all();
+        return CivilStatus::all();
     }
 }

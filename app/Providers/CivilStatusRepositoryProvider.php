@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\CivilStatuses\CivilStatusesRepository;
+use App\Repositories\CivilStatuses\CivilStatusRepository;
 
-class CivilStatusesRepositoryProvider extends ServiceProvider
+class CivilStatusRepositoryProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -24,6 +24,6 @@ class CivilStatusesRepositoryProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Repositories\CivilStatuses\CivilStatusesRepositoryInterface', CivilStatusesRepository::class);
+        $this->app->bind('App\Repositories\CivilStatuses\CivilStatusRepositoryInterface', CivilStatusRepository::class);
     }
 }
