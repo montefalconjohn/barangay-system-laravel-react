@@ -2,10 +2,10 @@
 
 namespace App\Services\EmploymentStatuses;
 
-use App\Models\EmploymentStatuses;
-use App\Http\Requests\EmploymentStatusesRequest;
+use App\Models\EmploymentStatus;
+use App\Http\Requests\EmploymentStatusRequest;
 
-interface EmploymentStatusesServiceInterface
+interface EmploymentStatusServiceInterface
 {
     /**
      * Fetches all Employment statuses
@@ -17,26 +17,26 @@ interface EmploymentStatusesServiceInterface
      * 
      * @Param int $id
      * 
-     * @return EmploymentStatuses
+     * @return EmploymentStatus
      */
-    public function fetchEmploymentStatusById(int $id): EmploymentStatuses;
+    public function fetchEmploymentStatusById(int $id): EmploymentStatus;
 
     /**
      * Create employment status
      * 
-     * @param EmploymentStatusesRequest $request
+     * @param EmploymentStatusRequest $request
      */
-    public function createEmploymentStatus($request): EmploymentStatuses;
+    public function createEmploymentStatus(EmploymentStatusRequest $request): EmploymentStatus;
 
     /**
      * Update a specific employment status by id
      * 
-     * @param EmploymentStatusesRequest $request
+     * @param EmploymentStatusRequest $request
      * @param int $id
      * 
      * @return void
      */
-    public function updateEmploymentStatusById($request, int $id): void;
+    public function updateEmploymentStatusById(EmploymentStatusRequest $request, int $id): void;
 
     /**
      * Delete Employment status by Id

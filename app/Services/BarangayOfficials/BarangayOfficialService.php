@@ -5,6 +5,7 @@ namespace App\Services\BarangayOfficials;
 use App\Models\BarangayOfficial;
 use App\Services\BarangayOfficials\BarangayOfficialServiceInterface;
 use App\Repositories\BarangayOfficialRepositoryInterface;
+use App\Http\Requests\BarangayOfficialRequest;
 
 class BarangayOfficialService implements BarangayOfficialServiceInterface
 {
@@ -40,7 +41,7 @@ class BarangayOfficialService implements BarangayOfficialServiceInterface
     /**
      * @inheritDoc
      */
-    public function createBarangayOfficial($request): BarangayOfficial
+    public function createBarangayOfficial(BarangayOfficialRequest $request): BarangayOfficial
     {
         return BarangayOfficial::create([
             'first_name' => $request->firstName,
@@ -66,7 +67,7 @@ class BarangayOfficialService implements BarangayOfficialServiceInterface
     /**
      * @inheritDoc
      */
-    public function updateBarangayOfficialById($request, int $id): void
+    public function updateBarangayOfficialById(BarangayOfficialRequest $request, int $id): void
     {
         $barangayOfficial = $this->barangayOfficialRepository->getBarangayOfficialById($id);
         

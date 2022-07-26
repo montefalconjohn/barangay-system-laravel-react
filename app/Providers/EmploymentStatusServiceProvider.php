@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Services\EmploymentStatuses\EmploymentStatusesService;
+use App\Services\EmploymentStatuses\EmploymentStatusService;
 
-class EmploymentStatusesServiceProvider extends ServiceProvider
+class EmploymentStatusServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -24,6 +24,6 @@ class EmploymentStatusesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Services\EmploymentStatuses\EmploymentStatusesServiceInterface', EmploymentStatusesService::class);
+        $this->app->bind('App\Services\EmploymentStatuses\EmploymentStatusServiceInterface', EmploymentStatusService::class);
     }
 }

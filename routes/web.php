@@ -51,11 +51,11 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->delete('civil-statuses/{id}', ['uses' => 'CivilStatusController@destroy']);
 
         // Employment Statuses entity resource endpoints
-        $router->get('employment-statuses/', ['uses' => 'EmploymentStatusesController@index']);
-        $router->get('employment-statuses/{id}', ['uses' => 'EmploymentStatusesController@show']);
-        $router->post('employment-statuses', ['uses' => 'EmploymentStatusesController@store']);
-        $router->patch('employment-statuses/{id}', ['uses' => 'EmploymentStatusesController@update']);
-        $router->delete('employment-statuses/{id}', ['uses' => 'EmploymentStatusesController@destroy']);
+        $router->get('employment-statuses/', ['uses' => 'EmploymentStatusController@index']);
+        $router->get('employment-statuses/{id}', ['uses' => 'EmploymentStatusController@show']);
+        $router->post('employment-statuses', ['uses' => 'EmploymentStatusController@store']);
+        $router->patch('employment-statuses/{id}', ['uses' => 'EmploymentStatusController@update']);
+        $router->delete('employment-statuses/{id}', ['uses' => 'EmploymentStatusController@destroy']);
 
         // Citizenship model resource endpoints
         $router->get('citizenships/', ['uses' => 'CitizenshipController@index']);

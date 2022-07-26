@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\EmploymentStatuses\EmploymentStatusesRepository;
+use App\Repositories\EmploymentStatuses\EmploymentStatusRepository;
 
-class EmploymentStatusesRepositoryProvider extends ServiceProvider
+class EmploymentStatusRepositoryProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -24,6 +24,6 @@ class EmploymentStatusesRepositoryProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Repositories\EmploymentStatuses\EmploymentStatusesRepositoryInterface', EmploymentStatusesRepository::class);
+        $this->app->bind('App\Repositories\EmploymentStatuses\EmploymentStatusRepositoryInterface', EmploymentStatusRepository::class);
     }
 }

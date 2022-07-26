@@ -36,7 +36,7 @@ interface CitizenshipServiceInterface
      * @param CitizenshipRequest $request
      * @param int $id
      * 
-     * @retur nvoid
+     * @return void
      */
     public function updateCitizenshipById(CitizenshipRequest $request, int $id): void;
 

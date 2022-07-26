@@ -2,9 +2,9 @@
 
 namespace App\Repositories\EmploymentStatuses;
 
-use App\Models\EmploymentStatuses;
+use App\Models\EmploymentStatus;
 
-interface EmploymentStatusesRepositoryInterface
+interface EmploymentStatusRepositoryInterface
 {
     /**
      * Fetches all employment statuses
@@ -16,7 +16,7 @@ interface EmploymentStatusesRepositoryInterface
      * 
      * @param int $id
      * 
-     * @return EmploymentStatuses
+     * @return EmploymentStatus
      */
-    public function getEmploymentStatusById(int $id): EmploymentStatuses;
+    public function getEmploymentStatusById(int $id): EmploymentStatus;
 }
