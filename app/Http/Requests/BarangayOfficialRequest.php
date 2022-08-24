@@ -76,7 +76,7 @@ class BarangayOfficialRequest extends FormRequest
             'barangay' => 'integer|exists:barangays,id',
             'civilStatus' => 'integer|exists:civil_statuses,id',
             'employmentStatus' => 'integer|exists:employment_statuses,id',
-            'position' => 'required|integer|exists:positions,id'
+            'position' => 'integer|exists:positions,id'
         ];
     }
 }

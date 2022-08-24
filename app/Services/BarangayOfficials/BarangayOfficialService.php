@@ -38,7 +38,7 @@ class BarangayOfficialService implements BarangayOfficialServiceInterface
         return $this->barangayOfficialRepository->getBarangayOfficialById($id);
     }
     
-    /**
+    /**xz
      * @inheritDoc
      */
     public function createBarangayOfficial(BarangayOfficialRequest $request): BarangayOfficial

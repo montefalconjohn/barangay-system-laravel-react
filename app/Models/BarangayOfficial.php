@@ -25,13 +25,13 @@ class BarangayOfficial extends Model
         'end_term'
     ];
 
-    // Barangay official has one barangay but barangay can have many barangay official
+    // Barangay official works in one barangay but barangay can have many barangay official
     public function barangay()
     {
         return $this->belongsTo(Barangay::class);
     }
 
-    // Barangay official has one position but position can have many barangay official
+    // Barangay official works in one position but position can have many barangay official
     public function position()
     {
         return $this->belongsTo(Position::class);
