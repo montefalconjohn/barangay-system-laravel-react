@@ -18,7 +18,7 @@ class EmploymentStatusResource extends JsonResource
             'type' => 'employment-statuses',
             'id' => (string)$this->id,
             'attributes' => [
-                'employment_status' => $this->employment_status,
+                'employmentStatus' => $this->employment_status,
             ]
         ];
     }

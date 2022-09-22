@@ -19,7 +19,7 @@ class BarangayOfficialRepositoryProvider extends ServiceProvider
 
     /**
      * Register the application services.
-     *
+     *cxzcxz
      * @return void
      */
     public function register()

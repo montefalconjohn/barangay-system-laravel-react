@@ -22,7 +22,7 @@ class BarangayResource extends JsonResource
                 'municipality' => $this->municipality,
                 'province' => $this->province,
                 'email' => $this->email,
-                'phone_number' => $this->phone_number
+                'phoneNumber' => $this->phone_number
             ],
             'relationships' => [
                 'barangayOfficials' => $this->barangayOfficials,

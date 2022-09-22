@@ -18,7 +18,7 @@ class CivilStatusResource extends JsonResource
             'type' => 'civil-statuses',
             'id' => (string)$this->id,
             'attributes' => [
-                'civil_status_name' => $this->civil_status_name,
+                'civilStatusName' => $this->civil_status_name,
             ]
         ];
     }
