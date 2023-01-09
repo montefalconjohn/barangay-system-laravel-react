@@ -2,19 +2,20 @@
 
 namespace App\Services\Position;
 
+use App\Http\Requests\PositionRequest;
 use App\Models\Position;
 
 interface PositionServiceInterface
 {
     /**
      * Fetches all Positions available
-     * 
+     *
      */
     public function fetchPositions();
 
     /**
      * Fetches specific Position by ID
-     * 
+     *
      * @param int $id
      * @return Position
      */
@@ -22,23 +23,23 @@ interface PositionServiceInterface
 
     /**
      * Create a position
-     * 
-     * @param $request
+     *
+     * @param PositionRequest $request
      * @return Position
      */
-    public function createPosition($request): Position;
+    public function createPosition(PositionRequest $request): Position;
 
     /**
      * Update a specific position by ID
-     * @param $request
+     * @param PositionRequest $request
      * @param int $id
      * @return void
      */
-    public function updatePosition($request, int $id): void;
+    public function updatePosition(PositionRequest $request, int $id): void;
 
     /**
      * Deletes a specific position
-     * 
+     *
      * @param int $id
      * @return void
      */

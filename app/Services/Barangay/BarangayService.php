@@ -2,18 +2,18 @@
 
 namespace App\Services\Barangay;
 
+use App\Http\Requests\BarangayRequest;
 use App\Models\Barangay;
-use App\Services\Barangay\BarangayServiceInterface;
 use App\Repositories\Barangays\BarangayRepositoryInterface;
 
-class BarangayService implements BarangayServiceInterface 
+class BarangayService implements BarangayServiceInterface
 {
     /** @var BarangayRepositoryInterface */
     private $barangayRepository;
 
     /**
      * BarangayService constructor
-     * 
+     *
      * @param BarangayRepositoryInterface $barangayRepository
      */
     public function __construct(BarangayRepositoryInterface $barangayRepository)
@@ -33,7 +33,7 @@ class BarangayService implements BarangayServiceInterface
     /**
      * @inheritDoc
      */
-    public function createBarangay($request): Barangay
+    public function createBarangay(BarangayRequest $request): Barangay
     {
         return Barangay::create([
             'name' => $request->name,
@@ -47,10 +47,9 @@ class BarangayService implements BarangayServiceInterface
     /**
      * @inheritDoc
      */
-    public function updateBarangay($request, int $id): void
+    public function updateBarangay(BarangayRequest $request, int $id): void
     {
         $barangay = $this->barangayRepository->getBarangayById($id);
-
         $barangay->fill($request->input())->save();
     }
 
@@ -60,7 +59,6 @@ class BarangayService implements BarangayServiceInterface
     public function deleteBarangay(int $id): void
     {
         $barangay = $this->barangayRepository->getBarangayById($id);
-
         $barangay->delete();
     }
 }

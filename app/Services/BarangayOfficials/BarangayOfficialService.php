@@ -3,7 +3,6 @@
 namespace App\Services\BarangayOfficials;
 
 use App\Models\BarangayOfficial;
-use App\Services\BarangayOfficials\BarangayOfficialServiceInterface;
 use App\Repositories\BarangayOfficials\BarangayOfficialRepositoryInterface;
 use App\Http\Requests\BarangayOfficialRequest;
 
@@ -14,7 +13,7 @@ class BarangayOfficialService implements BarangayOfficialServiceInterface
 
     /**
      * BarangayOfficialService constructor
-     * 
+     *
      * @param BarangayOfficialRepositoryInterface
      */
     public function __construct(BarangayOfficialRepositoryInterface $barangayOfficialRepository)
@@ -29,7 +28,7 @@ class BarangayOfficialService implements BarangayOfficialServiceInterface
     {
         return $this->barangayOfficialRepository->getBarangayOfficials();
     }
-    
+
     /**
      * @inheritDoc
      */
@@ -37,8 +36,8 @@ class BarangayOfficialService implements BarangayOfficialServiceInterface
     {
         return $this->barangayOfficialRepository->getBarangayOfficialById($id);
     }
-    
-    /**xz
+
+    /**
      * @inheritDoc
      */
     public function createBarangayOfficial(BarangayOfficialRequest $request): BarangayOfficial
@@ -70,7 +69,6 @@ class BarangayOfficialService implements BarangayOfficialServiceInterface
     public function updateBarangayOfficialById(BarangayOfficialRequest $request, int $id): void
     {
         $barangayOfficial = $this->barangayOfficialRepository->getBarangayOfficialById($id);
-        
         $barangayOfficial->fill($request->input())->save();
     }
 
@@ -80,7 +78,6 @@ class BarangayOfficialService implements BarangayOfficialServiceInterface
     public function deleteBarangayOfficial(int $id): void
     {
         $barangayOfficial = $this->barangayOfficialRepository->getBarangayOfficialById($id);
-
         $barangayOfficial->delete();
     }
 }

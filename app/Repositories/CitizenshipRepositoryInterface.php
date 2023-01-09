@@ -13,9 +13,8 @@ interface CitizenshipRepositoryInterface
 
     /**
      * Fetch citizenship by id
-     * 
+     *
      * @param int $id
-     * 
      * @return Citizenship
      */
     public function fetchCitizenshipById(int $id): Citizenship;

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Citizenship;
 use App\Http\Requests\CitizenshipRequest;
 use App\Http\Resources\CitizenshipResource;
-use Illuminate\Http\Request;
 use App\Services\Citizenship\CitizenshipServiceInterface;
+use Illuminate\Http\JsonResponse;
 
 class CitizenshipController extends Controller
 {
@@ -15,7 +14,7 @@ class CitizenshipController extends Controller
 
     /**
      * CitizenshipController constructor.
-     * 
+     *
      * @param CitizenshipServiceInterface $citizenshipService
      */
     public function __construct(CitizenshipServiceInterface $citizenshipService)
@@ -26,7 +25,7 @@ class CitizenshipController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
@@ -36,21 +35,21 @@ class CitizenshipController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  CitizenshipRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param CitizenshipRequest $request
+     * @return CitizenshipResource
      */
-    public function store(CitizenshipRequest $request)
+    public function store(CitizenshipRequest $request): CitizenshipResource
     {
         return new CitizenshipResource($this->citizenshipService->createCitizenship($request));
-    } 
+    }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return CitizenshipResource
      */
-    public function show(int $id)
+    public function show(int $id): CitizenshipResource
     {
         return new CitizenshipResource($this->citizenshipService->fetchCitizenshipById($id));
     }
@@ -58,27 +57,25 @@ class CitizenshipController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  CitizenshipRequest  $request
-     * @param  \App\Citizenship  $citizenship
-     * @return \Illuminate\Http\Response
+     * @param CitizenshipRequest $request
+     * @param int $id
+     * @return JsonResponse
      */
-    public function update(CitizenshipRequest $request, int $id)
+    public function update(CitizenshipRequest $request, int $id): JsonResponse
     {
         $this->citizenshipService->updateCitizenshipById($request, $id);
-
         return response()->json('Citizenship successfully updated.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Citizenship  $citizenship
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return JsonResponse
      */
-    public function destroy(int $id)
+    public function destroy(int $id): JsonResponse
     {
         $this->citizenshipService->deleteCitizenshipById($id);
-
         return response()->json('Citizenship successfully deleted.');
     }
 }

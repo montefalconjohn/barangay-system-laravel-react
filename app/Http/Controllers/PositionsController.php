@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\PositionResource;
 use App\Models\Positions;
-use Illuminate\Http\Request;
 use App\Services\Position\PositionServiceInterface;
 use App\Http\Requests\PositionRequest;
+use Illuminate\Http\JsonResponse;
 
 class PositionsController extends Controller
 {
@@ -14,9 +14,9 @@ class PositionsController extends Controller
     private $positionService;
 
     /**
-     * PositionController constructor.
-     * 
-     * @param PositionServiceInterface
+     * PositionsController constructor.
+     *
+     * @param PositionServiceInterface $positionService
      */
     public function __construct(PositionServiceInterface $positionService)
     {
@@ -26,7 +26,7 @@ class PositionsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
@@ -36,10 +36,10 @@ class PositionsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  PositionRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param PositionRequest $request
+     * @return PositionResource
      */
-    public function store(PositionRequest $request)
+    public function store(PositionRequest $request): PositionResource
     {
         return new PositionResource($this->positionService->createPosition($request));
     }
@@ -47,10 +47,10 @@ class PositionsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Positions  $positions
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return PositionResource
      */
-    public function show(int $id)
+    public function show(int $id): PositionResource
     {
         return new PositionResource($this->positionService->fetchPositionById($id));
     }
@@ -58,27 +58,25 @@ class PositionsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  PositionRequest  $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param PositionRequest $request
+     * @param int $id
+     * @return JsonResponse
      */
-    public function update(PositionRequest $request, int $id)
+    public function update(PositionRequest $request, int $id): JsonResponse
     {
         $this->positionService->updatePosition($request, $id);
-
         return response()->json('Position successfully updated.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return JsonResponse
      */
-    public function destroy(int $id)
+    public function destroy(int $id): JsonResponse
     {
         $this->positionService->deletePosition($id);
-
         return response()->json('Position successfully deleted.');
     }
 }

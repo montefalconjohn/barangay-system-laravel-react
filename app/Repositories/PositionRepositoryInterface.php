@@ -13,7 +13,8 @@ interface PositionRepositoryInterface
 
     /**
      * Returns a specific Position by ID
-     * 
+     *
+     * @param int $id
      * @return Position
      */
     public function getPositionById(int $id): Position;

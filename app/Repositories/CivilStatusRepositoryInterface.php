@@ -13,8 +13,9 @@ interface CivilStatusRepositoryInterface
 
     /**
      * Fetches a specific civil status by ID
-     * 
-     * @return CivilStatuses
+     *
+     * @param int $id
+     * @return CivilStatus
      */
     public function getCivilStatusById(int $id): CivilStatus;
 }

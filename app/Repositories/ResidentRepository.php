@@ -13,12 +13,15 @@ class ResidentRepository implements ResidentRepositoryInterface
      */
     public function fetchResidentById(int $residentId): Resident
     {
+        // Find resident
         $resident = Resident::find($residentId);
 
+        // If id doesnt exist, throw exception
         if (!$resident) {
             throw new HttpException(500, "Resident with {$residentId} does not exist.");
         }
 
+        // Return data
         return $resident;
     }
 }

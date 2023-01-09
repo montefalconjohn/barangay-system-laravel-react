@@ -20,12 +20,15 @@ class CitizenshipRepository implements CitizenshipRepositoryInterface
      */
     public function fetchCitizenshipById(int $id): Citizenship
     {
+        // Find citizen by id
         $citizenship = Citizenship::find($id);
 
+        // If id doesnt exist, throw exception
         if (!$citizenship) {
             throw new HttpException(500, "Citizenship with {$id} does not exist.");
         }
 
+        // Return data
         return $citizenship;
     }
 }

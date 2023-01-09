@@ -2,7 +2,6 @@
 
 namespace App\Services\EmploymentStatuses;
 
-use App\Services\EmploymentStatuses\EmploymentStatusServiceInterface;
 use App\Models\EmploymentStatus;
 use App\Repositories\EmploymentStatuses\EmploymentStatusRepositoryInterface;
 use App\Http\Requests\EmploymentStatusRequest;
@@ -14,7 +13,7 @@ class EmploymentStatusService implements EmploymentStatusServiceInterface
 
     /**
      * EmplyomentStatusesService constructor.
-     * 
+     *
      * @param EmploymentStatusRepositoryInterface $employmentStatusRepository
      */
     public function __construct(EmploymentStatusRepositoryInterface $employmentStatusRepository)
@@ -54,7 +53,6 @@ class EmploymentStatusService implements EmploymentStatusServiceInterface
     public function updateEmploymentStatusById(EmploymentStatusRequest $request, int $id): void
     {
         $status = $this->employmentStatusRepository->getEmploymentStatusById($id);
-
         $status->fill($request->input())->save();
     }
 
@@ -64,7 +62,6 @@ class EmploymentStatusService implements EmploymentStatusServiceInterface
     public function deleteEmploymentStatusById(int $id): void
     {
         $status = $this->employmentStatusRepository->getEmploymentStatusById($id);
-
         $status->delete();
     }
 }

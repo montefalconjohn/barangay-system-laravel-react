@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BarangayOfficialRequest;
 use App\Http\Resources\BarangayOfficialResource;
-use App\Models\BarangayOfficial;
-use Illuminate\Http\Request;
 use App\Services\BarangayOfficials\BarangayOfficialServiceInterface;
+use Illuminate\Http\JsonResponse;
 
 class BarangayOfficialController extends Controller
 {
@@ -15,8 +14,8 @@ class BarangayOfficialController extends Controller
 
     /**
      * BarangayOfficialController constructor.
-     * 
-     * @param BarangayOfficialsServiceInterface
+     *
+     * @param BarangayOfficialServiceInterface $barangayOfficialService
      */
     public function __construct(BarangayOfficialServiceInterface $barangayOfficialService)
     {
@@ -26,7 +25,7 @@ class BarangayOfficialController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
@@ -36,10 +35,10 @@ class BarangayOfficialController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  BarangayOfficialRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param BarangayOfficialRequest $request
+     * @return BarangayOfficialResource
      */
-    public function store(BarangayOfficialRequest $request)
+    public function store(BarangayOfficialRequest $request): BarangayOfficialResource
     {
         return new BarangayOfficialResource($this->barangayOfficialService->createBarangayOfficial($request));
     }
@@ -47,10 +46,10 @@ class BarangayOfficialController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\BarangayOfficial  $barangayOfficial
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return BarangayOfficialResource
      */
-    public function show(int $id)
+    public function show(int $id): BarangayOfficialResource
     {
         return new BarangayOfficialResource($this->barangayOfficialService->fetchBarangayOfficialById($id));
     }
@@ -58,24 +57,23 @@ class BarangayOfficialController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  BarangayOfficialRequest  $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param BarangayOfficialRequest $request
+     * @param int $id
+     * @return JsonResponse
      */
-    public function update(BarangayOfficialRequest $request, int $id)
+    public function update(BarangayOfficialRequest $request, int $id): JsonResponse
     {
         $this->barangayOfficialService->updateBarangayOfficialById($request, $id);
-
         return response()->json('Barangay Official updated.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\BarangayOfficial  $barangayOfficial
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return JsonResponse
      */
-    public function destroy(int $id)
+    public function destroy(int $id): JsonResponse
     {
         $this->barangayOfficialService->deleteBarangayOfficial($id);
 

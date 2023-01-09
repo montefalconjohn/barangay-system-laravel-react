@@ -30,7 +30,7 @@ class ResidentRequest extends FormRequest
     /**
      * Validation for post method request
      */
-    private function postValidation()
+    private function postValidation(): array
     {
         return [
             'firstName' => 'required|string|min:3|max:120',
@@ -60,7 +60,7 @@ class ResidentRequest extends FormRequest
     /**
      * Validation for patch method request
      */
-    private function patchValidation()
+    private function patchValidation(): array
     {
         return [
             'firstName' => 'string|min:3|max:120',

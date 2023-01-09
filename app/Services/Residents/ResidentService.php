@@ -3,19 +3,18 @@
 namespace App\Services\Residents;
 
 use App\Http\Requests\ResidentRequest;
-use App\Services\Residents\ResidentServiceInterface;
 use App\Models\Resident;
 use App\Repositories\Residents\ResidentRepositoryInterface;
 
 class ResidentService implements ResidentServiceInterface
 {
-    /** @var ResidentsRepositoryInterface */
+    /** @var ResidentRepositoryInterface */
     private $residentRepository;
-    
+
     /**
-     * ResidentsService constructor.
-     * 
-     * @param ResidentRepositoryInterface $residentsRepository
+     *
+     * ResidentService constructor.
+     * @param ResidentRepositoryInterface $residentRepository
      */
     public function __construct(ResidentRepositoryInterface $residentRepository)
     {
@@ -64,7 +63,7 @@ class ResidentService implements ResidentServiceInterface
     public function updateResidentById(ResidentRequest $request, int $id): void
     {
         $resident = $this->residentRepository->fetchResidentById($id);
-        
+
         $resident->fill($request->input())->save();
     }
 

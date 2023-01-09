@@ -12,10 +12,9 @@ interface EmploymentStatusRepositoryInterface
     public function getAllEmploymentStatuses();
 
     /**
-     * Fetches employment status by id 
-     * 
+     * Fetches employment status by id
+     *
      * @param int $id
-     * 
      * @return EmploymentStatus
      */
     public function getEmploymentStatusById(int $id): EmploymentStatus;

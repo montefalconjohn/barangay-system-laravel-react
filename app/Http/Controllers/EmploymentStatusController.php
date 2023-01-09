@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\EmploymentStatusRequest;
 use App\Http\Resources\EmploymentStatusResource;
 use App\Services\EmploymentStatuses\EmploymentStatusServiceInterface;
+use Illuminate\Http\JsonResponse;
 
 class EmploymentStatusController extends Controller
 {
@@ -14,17 +14,18 @@ class EmploymentStatusController extends Controller
 
     /**
      * EmploymentStatusController constructor.
-     * 
-     * @param EmploymentStatusServiceInterface $employmentStatusServiceInterface
+     *
+     * @param EmploymentStatusServiceInterface $employmentStatusService
      */
     public function __construct(EmploymentStatusServiceInterface $employmentStatusService)
     {
         $this->employmentStatusService = $employmentStatusService;
     }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
@@ -34,10 +35,10 @@ class EmploymentStatusController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  EmploymentStatusRequest $request
-     * @return \Illuminate\Http\Response
+     * @param EmploymentStatusRequest $request
+     * @return EmploymentStatusResource
      */
-    public function store(EmploymentStatusRequest $request)
+    public function store(EmploymentStatusRequest $request): EmploymentStatusResource
     {
         return new EmploymentStatusResource($this->employmentStatusService->createEmploymentStatus($request));
     }
@@ -45,8 +46,8 @@ class EmploymentStatusController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return EmploymentStatusResource
      */
     public function show($id)
     {
@@ -57,10 +58,10 @@ class EmploymentStatusController extends Controller
      * Update the specified resource in storage.
      *
      * @param EmploymentStatusRequest $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return JsonResponse
      */
-    public function update(EmploymentStatusRequest $request, $id)
+    public function update(EmploymentStatusRequest $request, $id): JsonResponse
     {
         $this->employmentStatusService->updateEmploymentStatusById($request, $id);
 
@@ -70,10 +71,10 @@ class EmploymentStatusController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return JsonResponse
      */
-    public function destroy($id)
+    public function destroy($id): JsonResponse
     {
         $this->employmentStatusService->deleteEmploymentStatusById($id);
 

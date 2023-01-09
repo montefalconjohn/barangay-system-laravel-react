@@ -30,7 +30,7 @@ class CivilStatusRequest extends FormRequest
     /**
      * Validation for post method request
      */
-    private function postValidation()
+    private function postValidation(): array
     {
         return [
             'civil_status_name' => 'required|string|unique:civil_statuses'
@@ -40,7 +40,7 @@ class CivilStatusRequest extends FormRequest
     /**
      * Validation for patch method request
      */
-    private function patchValidation()
+    private function patchValidation(): array
     {
         // the rule in email is to avoid the unique constraint error
         return [

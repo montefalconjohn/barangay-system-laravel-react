@@ -3,19 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CivilStatusRequest;
-use Illuminate\Http\Request;
 use App\Http\Resources\CivilStatusResource;
 use App\Services\CivilStatuses\CivilStatusServiceInterface;
+use Illuminate\Http\JsonResponse;
 
 class CivilStatusController extends Controller
 {
-    /** @var CivilStatusesServiceInterface */
+    /** @var CivilStatusServiceInterface */
     private $civilStatusService;
-    
+
     /**
-     * CivilStatusesController constroller
-     * 
-     * @param CivilStatusServiceInterface
+     * CivilStatusController constructor.
+     *
+     * @param CivilStatusServiceInterface $civilStatusService
      */
     public function __construct(CivilStatusServiceInterface $civilStatusService)
     {
@@ -25,20 +25,20 @@ class CivilStatusController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
         return CivilStatusResource::collection($this->civilStatusService->fetchCivilStatuses());
     }
 
-    /**
+    /***
      * Store a newly created resource in storage.
      *
-     * @param  CivilStatusRequest $request
-     * @return \Illuminate\Http\Response
+     * @param CivilStatusRequest $request
+     * @return CivilStatusResource
      */
-    public function store(CivilStatusRequest $request)
+    public function store(CivilStatusRequest $request): CivilStatusResource
     {
         return new CivilStatusResource($this->civilStatusService->createCivilStatus($request));
     }
@@ -46,8 +46,8 @@ class CivilStatusController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return CivilStatusResource
      */
     public function show($id)
     {
@@ -57,25 +57,24 @@ class CivilStatusController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\CivilStatusRequest  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param CivilStatusRequest $request
+     * @param $id
      */
     public function update(CivilStatusRequest $request, $id)
     {
         $this->civilStatusService->updateCivilStatusById($request, $id);
+        return response()->json('Civil status successfully updated.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return JsonResponse
      */
-    public function destroy($id)
+    public function destroy($id): JsonResponse
     {
         $this->civilStatusService->deleteCivilStatusById($id);
-
-        return response()->json('Civil status sucessfully deleted.');
+        return response()->json('Civil status successfully deleted.');
     }
 }

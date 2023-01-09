@@ -8,6 +8,9 @@ interface BarangayOfficialRepositoryInterface
 {
     /**
      * Fetch a certain barangay by ID
+     *
+     * @param int $id
+     * @return BarangayOfficial
      */
     public function getBarangayOfficialById(int $id): BarangayOfficial;
 

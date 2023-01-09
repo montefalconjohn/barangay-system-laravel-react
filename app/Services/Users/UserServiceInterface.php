@@ -2,28 +2,22 @@
 
 namespace App\Services\Users;
 
+use App\Http\Requests\UsersRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 interface UserServiceInterface {
     /**
      * Creates a User
-     * 
-     * @param $request
+     *
+     * @param UsersRequest$request
      * @return User
      */
-    public function createUser($request): User;
-
-    /**
-     * Logs in a certain user
-     * 
-     * @param Request $request
-     */
-    public function login(Request $request);
+    public function createUser(UsersRequest $request): User;
 
     /**
      * Logs out or destroy the token of a certain user
-     * 
+     *
      * @param Request $request
      * @return void
      */

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class BarangayOfficial extends Model
 {
@@ -25,26 +26,42 @@ class BarangayOfficial extends Model
         'end_term'
     ];
 
-    // Barangay official works in one barangay but barangay can have many barangay official
-    public function barangay()
+    /**
+     * Barangay official works in one barangay but barangay can have many barangay official
+     *
+     * @return BelongsTo
+     */
+    public function barangay(): BelongsTo
     {
         return $this->belongsTo(Barangay::class);
     }
 
-    // Barangay official works in one position but position can have many barangay official
-    public function position()
+    /**
+     * Barangay official works in one position but position can have many barangay official
+     *
+     * @return BelongsTo
+     */
+    public function position(): BelongsTo
     {
         return $this->belongsTo(Position::class);
     }
 
-    // Barangay official has one civilStatus but civilStatus can have many barangay official
-    public function civilStatus()
+    /**
+     * Barangay official has one civilStatus but civilStatus can have many barangay official
+     *
+     * @return BelongsTo
+     */
+    public function civilStatus(): BelongsTo
     {
         return $this->belongsTo(CivilStatus::class);
     }
 
-    // Barangay official has one employmentStatus but employmentStatus can have many barangay official
-    public function employmentStatus()
+    /**
+     * Barangay official has one employmentStatus but employmentStatus can have many barangay official
+     *
+     * @return BelongsTo
+     */
+    public function employmentStatus(): BelongsTo
     {
         return $this->belongsTo(EmploymentStatus::class);
     }

@@ -3,7 +3,6 @@
 namespace App\Services\Citizenship;
 
 use App\Http\Requests\CitizenshipRequest;
-use App\Services\Citizenship\CitizenshipServiceInterface;
 use App\Models\Citizenship;
 use App\Repositories\Citizenship\CitizenshipRepositoryInterface;
 
@@ -14,7 +13,7 @@ class CitizenshipService implements CitizenshipServiceInterface
 
     /**
      * CitizenshipService constructor.
-     * 
+     *
      * @param CitizenshipRepositoryInterface $citizenshipRepository
      */
     public function __construct(CitizenshipRepositoryInterface $citizenshipRepository)
@@ -54,7 +53,6 @@ class CitizenshipService implements CitizenshipServiceInterface
     public function updateCitizenshipById(CitizenshipRequest $request, int $id): void
     {
         $citizen = $this->citizenshipRepository->fetchCitizenshipById($id);
-
         $citizen->fill($request->input())->save();
     }
 
@@ -64,7 +62,6 @@ class CitizenshipService implements CitizenshipServiceInterface
     public function deleteCitizenshipById(int $id): void
     {
         $citizen = $this->citizenshipRepository->fetchCitizenshipById($id);
-
         $citizen->delete();
     }
 }

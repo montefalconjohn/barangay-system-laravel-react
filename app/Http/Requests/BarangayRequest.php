@@ -47,12 +47,11 @@ class BarangayRequest extends FormRequest
     private function patchValidation(): array
     {
         return [
-            'name' => 'string|unique:barangays,name,'. $this->id . '|max:120',
+            'name' => 'string|unique:barangays,name,' . $this->id . '|max:120',
             'municipality' => 'string|max:120',
             'province' => 'string|max:120',
-            'email' => 'email|unique:barangays,email,'. $this->id .'|max:120',
+            'email' => 'email|unique:barangays,email,' . $this->id . '|max:120',
             'phone_number' => 'digits:11'
         ];
     }
 }
-  

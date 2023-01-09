@@ -21,13 +21,15 @@ class PositionRepository implements PositionRepositoryInterface
      */
     public function getPositionById(int $id): Position
     {
+        // Find position by id
         $position = Position::find($id);
-        
+
         // Throw exception
         if (!$position) {
             throw new HttpException(500, "Position with {$id} does not exist.");
         }
 
+        // Return data
         return $position;
     }
 }

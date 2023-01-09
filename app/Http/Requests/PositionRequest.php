@@ -30,7 +30,7 @@ class PositionRequest extends FormRequest
     /**
      * Validation for post method request
      */
-    private function postValidation()
+    private function postValidation(): array
     {
         return [
             'position_name' => 'required|string|unique:positions'
@@ -40,7 +40,7 @@ class PositionRequest extends FormRequest
     /**
      * Validation for patch method request
      */
-    private function patchValidation()
+    private function patchValidation(): array
     {
         // the rule in email is to avoid the unique constraint error
         return [

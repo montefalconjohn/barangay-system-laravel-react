@@ -8,10 +8,9 @@ interface ResidentRepositoryInterface
 {
     /**
      * Fetches resident by resident id
-     * 
+     *
      * @param int $residentId
-     * 
-     * @return Residents
+     * @return Resident
      */
     public function fetchResidentById(int $residentId): Resident;
 }

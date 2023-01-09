@@ -30,7 +30,7 @@ class BarangayOfficialRequest extends FormRequest
     /**
      * Validation for post method request
      */
-    private function postValidation()
+    private function postValidation(): array
     {
         return [
                 'firstName' => 'required|string|min:3|max:120',
@@ -56,7 +56,7 @@ class BarangayOfficialRequest extends FormRequest
     /**
      * Validation for patch method request
      */
-    private function patchValidation()
+    private function patchValidation(): array
     {
         return [
             'firstName' => 'string|min:3|max:120',
@@ -67,7 +67,7 @@ class BarangayOfficialRequest extends FormRequest
             'birthPlace' => 'string|min:10|max:50',
             'birthDate' => 'date_format:Y-m-d H:i:s',
             'phoneNumb' => 'digits:11',
-            'email' => 'email|unique:barangay_officials,email,'. $this->id .'|max:120',
+            'email' => 'email|unique:barangay_officials,email,' . $this->id . '|max:120',
             'purok' => 'int|max:11',
             'startTerm' => 'date_format:Y-m-d H:i:s',
             'endTerm' => 'date_format:Y-m-d H:i:s',

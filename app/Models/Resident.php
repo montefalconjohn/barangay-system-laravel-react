@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Resident extends Model
 {
@@ -30,26 +31,38 @@ class Resident extends Model
 
     protected $hidden = ['updated_at', 'created_at'];
 
-    // Many residents has one barangay
-    public function barangay()
+    /**
+     * Many residents has one barangay
+     *
+     * @return BelongsTo
+     */
+    public function barangay(): BelongsTo
     {
         return $this->belongsTo(Barangay::class);
     }
 
-    // Many residents has one citizenship
-    public function citizenship()
+    /**
+     * Many residents has one citizenship
+     *
+     * @return BelongsTo
+     */
+    public function citizenship(): BelongsTo
     {
         return $this->belongsTo(Citizenship::class);
     }
-    
-    // Many residents has one citizenship
-    public function civilStatus()
+
+    /**
+     * Many residents has one citizenship
+     *
+     * @return BelongsTo
+     */
+    public function civilStatus(): BelongsTo
     {
         return $this->belongsTo(CivilStatus::class);
     }
 
     // Residents has many blotters but blotters can only have one resident
-    public function blotters()
+    public function blotters(): BelongsTo
     {
         // return $this
     }

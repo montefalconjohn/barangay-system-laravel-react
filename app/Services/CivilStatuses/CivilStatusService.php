@@ -2,18 +2,18 @@
 
 namespace App\Services\CivilStatuses;
 
-use App\Services\CivilStatuses\CivilStatusServiceInterface;
+use App\Http\Requests\CivilStatusRequest;
 use App\Models\CivilStatus;
 use App\Repositories\CivilStatuses\CivilStatusRepositoryInterface;
 
 class CivilStatusService implements CivilStatusServiceInterface
 {
-    /** @var CivilStatusesRepositoryInterface */
+    /** @var CivilStatusRepositoryInterface */
     private $civilStatusRepository;
 
     /**
      * CivilStatusesService constructor.
-     * 
+     *
      * @param CivilStatusRepositoryInterface $civilStatusRepository
      */
     public function __construct(CivilStatusRepositoryInterface $civilStatusRepository)
@@ -40,7 +40,7 @@ class CivilStatusService implements CivilStatusServiceInterface
     /**
      * @inheritDoc
      */
-    public function createCivilStatus($request): CivilStatus
+    public function createCivilStatus(CivilStatusRequest $request): CivilStatus
     {
         return CivilStatus::create([
             'civil_status_name' => $request->civil_status_name
@@ -50,10 +50,9 @@ class CivilStatusService implements CivilStatusServiceInterface
     /**
      * @inheritDoc
      */
-    public function updateCivilStatusById($request, int $id): void
+    public function updateCivilStatusById(CivilStatusRequest $request, int $id): void
     {
         $civilStatus = $this->civilStatusRepository->getCivilStatusById($id);
-
         $civilStatus->fill($request->input())->save();
     }
 
@@ -63,7 +62,6 @@ class CivilStatusService implements CivilStatusServiceInterface
     public function deleteCivilStatusById(int $id): void
     {
         $civilStatus = $this->civilStatusRepository->getCivilStatusById($id);
-
         $civilStatus->delete();
     }
 }
